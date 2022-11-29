@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/app.css">
+</head>
+<body class="p-5">
+<div id="app">
+    <!--methodlar  her çağrıldığında çalıştırılır-->
+    <p> {{ adSoyad3() }}</p>
+    <!--computed bir sefer çalıştırılınca , sonuç cache lenir.-->
+</div>
+
+<script src="../assets/js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        name: 'Vue Demolar',
+        data: {
+            ad: 'ali',
+            soyad: 'veli'
+        },
+        methods: {
+            adSoyad3() {
+                return this.ad + ' ' + this.soyad;
+            }
+        }
+    })
+</script>
+</body>
+</html>

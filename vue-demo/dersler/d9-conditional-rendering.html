@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/app.css">
+</head>
+<body class="p-5">
+<div id="app">
+    <!-- v-if gösterilmezse dom dan çıkarılır -->
+    <div v-if="isVisibleDetaylar">
+        Lorem ipsum
+    </div>
+    <input type="text" class="form-control" v-model="isim">
+    <span v-if="isim.length>0">{{ isim.length }} karakter</span>
+    <hr>
+    <div v-show="isVisibleDetaylar">
+        Lorem v show
+    </div>
+    <button class="btn btn-primary" @click="gosterGizle">Göster/Gizle</button>
+    <hr>
+    <select v-model="kullaniciTipi">
+        <option value="">Seçiniz</option>
+        <option>Müşteri</option>
+        <option>Yönetici</option>
+    </select>
+    <hr>
+    <div v-if="kullaniciTipi === 'Müşteri'">
+        <h1>Müşteri Bilgileri</h1>
+        ...
+    </div>
+    <div v-else-if="kullaniciTipi === 'Yönetici'">
+        <h1>Yönetici Bilgileri</h1>
+        ...
+    </div>
+
+    <div v-else>
+        Else
+    </div>
+</div>
+
+<script src="../assets/js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        name: 'Vue Demolar',
+        data: {
+            isVisibleDetaylar:true,
+            isim: 'Ali',
+
+        },
+        methods: {
+            gosterGizle(){
+                this.isVisibleDetaylar = !this.isVisibleDetaylar;
+            }
+        }
+    })
+</script>
+</body>
+</html>

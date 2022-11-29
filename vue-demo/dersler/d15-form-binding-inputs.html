@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/app.css">
+</head>
+<body class="p-5">
+<div id="app">
+    <form action="">
+        <label>Adınız</label>
+        <input type="text" v-model="kullanici.ad" class="form-control col-4">
+
+        <label>Adres</label>
+        <textarea type="text" v-model="kullanici.adres" class="form-control col-4">abc</textarea>
+        <hr>
+        <label for="">
+            <input type="checkbox" v-model="kullanici.isAktifMi">Aktif mi ?
+        </label>
+        <pre class="form-text text-muted">{{kullanici.isAktifMi}}</pre>
+
+        <hr>
+
+        <label for="">
+            <input type="checkbox" v-model="kullanici.secilenRol" value="admin">Admin
+        </label>
+
+        <label for="">
+            <input type="checkbox" v-model="kullanici.secilenRol" value="kullanici">Kullanıcı
+        </label>
+
+        <label for="">
+            <input type="checkbox" v-model="kullanici.secilenRol" value="musteri">Müşteri
+        </label>
+
+        <pre class="form-text text-muted">{{kullanici.secilenRol}}</pre>
+
+        <select v-model="kullanici.secilenRol" multiple>
+            <option value="admin">Admin</option>
+            <option value="kullanici">Kullanıcı</option>
+            <option value="musteri">Müşteri</option>
+        </select>
+
+        <hr>
+
+        <label for="">
+            <input type="radio" v-model="kullanici.cinsiyet" value="E">Erkek
+        </label>
+
+        <label for="">
+            <input type="radio" v-model="kullanici.cinsiyet" value="K">Kadın
+        </label>
+
+        <pre class="form-text text-muted">{{kullanici.cinsiyet}}</pre>
+
+    </form>
+</div>
+
+<script src="../assets/js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        name: 'Vue Demolar',
+        data: {
+            kullanici : {
+                ad: '',
+                isAktifMi: true,
+                secilenRol:[],
+                cinsiyet:'E'
+            }
+        }
+    })
+</script>
+</body>
+</html>

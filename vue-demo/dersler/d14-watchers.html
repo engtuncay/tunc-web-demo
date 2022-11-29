@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/app.css">
+</head>
+<body class="p-5">
+<div id="app">
+    Odun:
+    <input type="number" v-model="odun" class="form-control col-2">
+    Taş:
+    <input type="number" v-model="tas" class="form-control col-2">
+    Toplam: {{ toplam}}
+    <hr>
+    Toplam: {{ toplam2 }}
+
+</div>
+
+<script src="../assets/js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        name: 'Vue Demolar',
+        data: {
+            odun: 0,
+            tas: 0,
+            toplam: 0
+        },
+        watch: {
+            odun(newvalue,oldvalue) {
+                console.log('Eski Değer:', oldvalue);
+                console.log('Yeni Değer:', newvalue);
+                this.toplam = parseInt(this.odun)+ parseInt(this.tas);
+            },
+            tas(newValue){
+                this.toplam = parseInt(this.odun)+ parseInt(this.tas);
+            }
+        },
+        computed : {
+            toplam2(){
+                return this.toplam = parseInt(this.odun)+ parseInt(this.tas);
+            }
+        }
+    })
+</script>
+</body>
+</html>

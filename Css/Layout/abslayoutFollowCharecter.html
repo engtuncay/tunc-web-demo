@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="../css-lib/general-style.css" rel="stylesheet">
+</head>
+
+<body>
+    <br>
+    <div class="fi-lay-relative">div:Relative
+        <div class="fi-bg-greenyellow fi-height-400">h:400
+            <br>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, natus quidem. Quod dicta ducimus iusto nisi
+            beatae provident consectetur voluptas laboriosam facere? Vitae repellendus voluptate iure tempore eligendi,
+            laborum quasi.
+
+        </div>
+        <div class="fi-bg-lightskyblue fi-height-200 fi-lay-absolute"
+             style="z-index: 9999;">divchild1:absolute h:200 z:9999
+        </div>
+        <div class="fi-bg-yellow fi-height-100 fi-lay-absolute"
+             style="z-index: 9999;">divchild2:absolute h:100 z:9999
+            <br>abs div child lar postioned pozisyonlanmış parent div lerini takip ederler taki , lrtb (left-right-top-bottom) değeri almadıkça. Bu div, div-child1 üzerine gelmiş, gökyüzü mavi div-child1 dir, sarı bg (background) ise div-ch2 dir.
+        Alttaki kırmızı alan ise parent dan sonra gelen statik div'dir.
+        </div>
+
+    </div>
+    <div class="fi-bg-red fi-height-300">
+        Diger<br>
+        Yazı
+    </div>
+
+    <br>
+    <button onclick="toggleDiv()">Toggle Div2</button>
+    <script>
+        function toggleDiv() {
+            var x = document.getElementById("abs1");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        };
+    </script>
+</body>
+
+</html>

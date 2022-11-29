@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/app.css">
+</head>
+<body class="p-5">
+<div id="app">
+    <h1>Kullanıcılar</h1>
+    <table class="table table-bordered">
+        <tr class="bg-success text-white">
+            <th>İsim</th>
+        </tr>
+        <tr v-for="kullanici in kullanicilar">
+            <td>{{kullanici}}</td>
+        </tr>
+    </table>
+
+    <h1>Kullanıcılar (2)</h1>
+    <table class="table table-bordered">
+        <tr class="bg-success text-white">
+            <th>Index</th>
+            <th>İsim</th>
+        </tr>
+        <tr v-for="kullanici in kullaniciList">
+            <td>{{kullanici.id}}</td>
+            <td>{{kullanici.isim}}</td>
+        </tr>
+    </table>
+</div>
+
+
+<script src="../assets/js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        name: 'Vue Demolar',
+        data: {
+            kullanicilar: ['Cem', 'Esra', 'Ceyda'],
+            kullaniciList: [{
+                id: 1,
+                isim: 'Cem',
+                rol: 'Admin'
+            }, {
+                id: 2,
+                isim: 'Adnan',
+                rol: 'User'
+            }, {
+                id: 3,
+                isim: 'Ali',
+                rol: 'User'
+            }
+
+            ]
+
+        }
+    })
+</script>
+</body>
+</html>

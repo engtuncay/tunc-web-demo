@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Websocket</title>
+    <style>
+        #leaveRoom{
+            display: none;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="http://localhost:3000/socket.io/socket.io.js"></script>
+    <script>
+        $(() => {
+            const socket = io.connect('http://localhost:3000', {
+                reconnectionAttempts: 4,
+                reconnectionDelay: 3000,
+                // reconnection: false
+            });
+
+            socket.on('reconnect_attempt', () => {
+                $('.reconnnectStatus').html('Yeniden bağlanmaya çalışılıyor.');
+            });
+
+            socket.on('reconnect_error', () => {
+                setTimeout(() => {
+                    $('.reconnnectStatus').html('Yeniden bağlanma başarısız.');
+                },1500);
+            });
+
+            socket.on('reconnect', () => {
+                $('.reconnnectStatus').html('Yeniden bağlanma başarılı.');
+            });
+
+            $('#joinRoom').on('click', () => {
+               socket.emit('joinRoom', { name: $('#roomName').val() });
+            });
+
+            $('#leaveRoom').on('click', () => {
+               socket.emit('leaveRoom', { name: $('#roomName').val() });
+            });
+
+            socket.on('new join', (data) => {
+                $('#userCount').html(`Bu odada <b> ${ data.count } </b> kişi var.`);
+            });
+
+            socket.on('leavedRoom', (data) => {
+                $('#userCount').html(`Bu odada <b> ${ data.count } </b> kişi var.`);
+            });
+
+            socket.on('log', (data) => {
+                $('.logs').append(data.message);
+                $('#roomName, #joinRoom').attr('disabled', 'disabled');
+                $('#leaveRoom').show();
+            });
+
+            socket.on('socket.leaved', (data) => {
+                $('.logs').append('</br>'+ data.message + '</br>');
+                $('#roomName, #joinRoom').removeAttr('disabled');
+                $('#leaveRoom').hide();
+                $('#userCount').empty();
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="reconnnectStatus"></div>
+
+    <input id="roomName" />
+    <button id="joinRoom">Join</button>
+    <button id="leaveRoom">Leave</button>
+    <div class="logs"></div>
+    <br><br>
+    <div id="userCount"></div>
+</body>
+</html>

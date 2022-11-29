@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="../css-lib/general-style.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css-lib/base.css">
+</head>
+
+<style>
+
+</style>
+
+<body>
+<p>p ve div ler block level elementtir.</p>
+<div class="fi-bg-greenyellow">1</div>
+<div class="fi-bg-red fi-width-600">2 block elemanlar width kabul etmezler ama background özelliği sadece width kadar
+    yaparlar ve content sabit şekilde width kadar doldurup, ekran küçülse dahi alt satıra geçirmezler(wrap:false).
+    satırın width den sonraki tarafı üst eleman , body ise body nin özelliklerini gösterir, mesela backgroun tekrar
+    beyaza dönder
+</div>
+<div class="fi-bg-yellow">3 ve block elemanlar taşdıkları vakit diğer satıra atlarlar ve satırın yine tamamını
+    alırlar.
+</div>
+<div class="fi-bg-red">4 <span class="fi-bg-greenyellow fi-height-200">span element inline dır ve yükseklik tanımı kabul etmez ve inline taşdığı vakit hemen alt satırdan devam ederler.</span>
+    <div class="fi-bg-yellow">4.1</div>
+</div>
+<div class="fi-bg-greenyellow">5 abc</div>
+
+<div><br>
+    Examples of Block Elements: p, div, form, header, nav, ul, li, and h1.
+</div>
+<div><br>
+    Examples of Inline Elements: a , span , b , em , i , cite , mark , and code.
+</div>
+
+<div><br> Inline Block Özellikler
+    <br>To place multiple block-like elements on the same horizontal line without floating them
+    <br>To allow an inline element to have width and/or height while still remaining inline
+    <br>To allow an inline element to have padding or margins
+</div>
+</body>
+
+</html>

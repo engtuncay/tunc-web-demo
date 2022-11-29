@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="reset1.css">
+    <link rel="stylesheet" href="../css-lib/fi.css">
+    <style>
+        #top-band {
+            height: 30px;
+            width: 100vw;
+        }
+        #menu-bar {
+            flex-basis: 100px;
+        }
+
+        #content {
+            width: 100vw;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="top-band" class="fi-bg-greenyellow">
+    top band
+        <button onclick="gizle()">gizle</button>
+    </div>
+
+    <div id="page-body" class="fi-flex">
+        <div id="menu-bar" class="fi-bg-dodger">
+            menu-bar
+        </div>
+        <div id="content" class="fi-bg-yellow">
+            content
+        </div>
+    </div>
+<script>
+
+    function gizle() {
+        var x = document.getElementById("menu-bar");
+
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+
+    }
+
+
+</script>
+</body>
+</html>

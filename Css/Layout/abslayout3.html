@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="style.css" rel="stylesheet">
+    <link href="../css-lib/general-style.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="fi-bg-greenyellow fi-lay-relative fi-height-400" id="parent">abc
+        <br>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, natus quidem. Quod dicta ducimus iusto nisi
+        beatae provident consectetur voluptas laboriosam facere? Vitae repellendus voluptate iure tempore eligendi,
+        laborum quasi.
+        <div class="fi-bg-yellow fi-height-100 fi-lay-absolute"
+             style="top:inherit;left:10px;z-index: 9999;" id="abs1">abc
+        </div>
+    </div>
+
+    <div class="fi-lay-relative fi-height-200 fi-bg-lightskyblue">
+        Deneme<br>
+        Lorem lorem lorem lorem lorem
+        <div class="fi-bg-lightskyblue fi-lay-absolute">
+            absoulute element, positioned elementi , pozisyonlamasını onun çerçevesine göre yapar. pozisyon(tbrl değeri) verilmezse contentinin devamında devam eder, inline değil, block olarak.
+        </div>
+        absolute sonrasına içerik girsek , dahi parentin içeriğinin devamı şeklinde yerleştirilir.
+    </div>
+    <div class="fi-lay-relative fi-height-200 fi-bg-lightskyblue">
+        Deneme<br>
+        Lorem lorem lorem lorem lorem
+        <div class="fi-bg-lightskyblue fi-lay-absolute" style="top: 10px">
+            absoulute element, positioned elementi , pozisyonlamasını onun çerçevesine!!! göre yapar. top 10 yapıldı
+        </div>
+
+    </div>
+
+    <div class="fi-bg-red">
+        Diger<br>
+        Yazı
+    </div>
+
+    <br>
+    <button onclick="toggleDiv()">Toggle Div2</button>
+    <script>
+        function toggleDiv() {
+            var x = document.getElementById("abs1");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        };
+    </script>
+</body>
+
+</html>

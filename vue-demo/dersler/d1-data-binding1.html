@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue Demo</title>
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/app.css">
+</head>
+<body class="p-5">
+<div id="app">
+        {{ mesaj }}
+    <p v-text="mesaj"></p>
+    <p v-html="mesajHtml"></p>
+    <hr>
+    <div>
+        <label>Mesaj</label>
+        <input type="text" v-model="mesaj" class="form-control">
+    </div>
+    <div>
+        <label>Fiyat</label>
+        <input type="text" v-model.number="fiyat" class="form-control">
+        <span>Kdv : {{ fiyat*18/100 }}</span><br>
+        <span>{{ (fiyat*18/100<5)?'Kdv Düşük':'Kdv Yüksek' }}</span>
+        <p v-once>İlk Kdv : {{fiyat*18/100}}</p> <!-- v-once direktifi bir kez basar , tekrar güncellemez-->
+    </div>
+</div>
+
+<script src="../assets/js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        name: 'Vue Demo',
+        data: {
+            mesaj: 'Merhaba Vue',
+            mesajHtml : 'Merhaba<b>Cem</b>',
+            fiyat : 12
+        }
+    })
+</script>
+</body>
+</html>

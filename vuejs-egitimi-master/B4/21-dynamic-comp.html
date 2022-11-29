@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/app.css">
+</head>
+<body class="p-1">
+<div id="app">
+    <div style="padding: 2px; background-color: lightyellow">
+    <keep-alive>
+        <component v-bind:is="componentMount"/>
+    </keep-alive>
+    </div>
+    <br><br>
+    <button v-on:click="toggleComp">Toggle</button>
+</div>
+
+<script src="../assets/js/vue.js"></script>
+<script>
+    Vue.component('AlertCount', {
+        data() {
+            return {
+                count: 0,
+            }
+        },
+        template: `
+            <div class="alert alert-success">
+                Merhaba Comp 1
+                <button @click="count++" class="btn btn-sm btn-primary">
+                    {{ count }} kez tıkladın
+                </button>
+            </div>`
+    });
+
+    var AlertCount2 = {
+        data() {
+            return {
+                count: 0
+            }
+        },
+        template: `
+            <div class="alert alert-success">
+                Merhaba Comp 2
+                <button @click="count++" class="btn btn-sm btn-primary">
+                    {{ count }} kez tıkladın
+                </button>
+            </div>`
+    };
+
+    const app = new Vue({
+        el: '#app',
+        name: 'Uzaktan Kurs',
+        data: {
+            componentMount:"AlertCount"
+        },
+        methods : {
+            toggleComp() {
+                if(this.componentMount === 'AlertCount'){
+                    this.componentMount = 'alert-count2'
+                }else{
+                    this.componentMount = 'AlertCount'
+                }
+            }
+        },
+        components: {
+            'alert-count2': AlertCount2
+        }
+    });
+</script>
+</body>
+</html>

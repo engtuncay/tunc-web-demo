@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <title></title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <script>
+      async function getUserAsync(name) {
+        let response = await fetch(`https://api.github.com/users/${name}`);
+        let data = await response.json();
+        return data;
+      }
+
+      getUserAsync("engtuncay").then(data => {
+        console.log(data);
+        document.body.innerText = "Name:" + data.name;
+      });
+
+    //   function getUser(name) {
+    //     fetch(`https://api.github.com/users/${name}`)
+    //       .then(function(response) {
+    //         return response.json();
+    //       })
+    //       .then(function(json) {
+    //         console.log(json);
+    //       });
+    //   }
+
+    //   //get user data
+    //   getUser("yourUsernameHere");
+
+//     async function getUserAsync(name) 
+// {
+//   await fetch(`https://api.github.com/users/${name}`).then(async (response)=> {
+//   return await response.json()
+// }
+
+// try catch li
+// async function getUserAsync(name) {
+//   try{
+//     let response = await fetch(`https://api.github.com/users/${name}`);
+//     return await response.json();
+//   }catch(err){
+//     console.error(err);
+//     // Handle errors here
+//   }
+// }
+
+    </script>
+  </body>
+</html>

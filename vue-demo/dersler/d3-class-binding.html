@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/app.css">
+</head>
+<body class="p-5">
+<div id="app">
+    <select v-model="secilenStil">
+        <option>alert alert-success</option>
+        <option>alert alert-warning</option>
+        <option>alert alert-info</option>
+        <option>alert alert-danger</option>
+    </select>
+    <div :class="secilenStil">Merhaba</div>
+    <div :class="[bgBasarili,yaziBeyaz,'jumbotron']">Merhaba</div>
+
+</div>
+
+<script src="../assets/js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        name: 'Vue Demolar',
+        data: {
+            secilenStil: 'alert alert-success',
+            bgBasarili: 'bg-success',
+            yaziBeyaz: 'text-white'
+        }
+    })
+</script>
+</body>
+</html>

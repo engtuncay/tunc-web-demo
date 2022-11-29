@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/app.css">
+</head>
+<body class="p-5">
+<div id="app">
+        <a v-bind:href="linkSite" v-bind:title="linkAciklama">Google</a><br>
+        <a :href="linkSite" :title="linkAciklama">Google 2 Link</a>
+    <hr/>
+    <div :id="id">Kurs {{ id }}</div> <!--id bind-->
+    <div :id="'Kurs'+id">Dinamik id Kurs {{ id }}</div> <!--id bind-->
+
+
+</div>
+
+<script src="../assets/js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        name: 'Vue Demolar',
+        data: {
+            linkSite : 'http://www.google.com',
+            linkAciklama: 'Link Açıklama',
+            id:5
+        }
+    })
+</script>
+</body>
+</html>

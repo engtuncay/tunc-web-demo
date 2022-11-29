@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/app.css">
+</head>
+<body class="p-5">
+<div id="app">
+
+    <form action="#" method="post" @submit="kaydet">
+        <div class="form-group">
+            <label for="adsoyad">Ad Soyad</label>
+            <input type="text" id="adsoyad" v-model="adsoyad" class="form-control col-4" required>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email Soyad</label>
+            <input type="text" id="email" v-model="email" class="form-control col-4" required>
+        </div>
+
+        <div class="form-group">
+            <label for="sifre">Şifre</label>
+            <input type="text" id="sifre" v-model="sifre" class="form-control col-4">
+        </div>
+
+        <div class="form-group">
+            <label for="sifre2">Şifre Tekrar</label>
+            <input type="text" id="sifre2" v-model="sifre2" class="form-control col-4">
+        </div>
+
+        <div class="form-group">
+            <label>
+                <input type="checkbox" v-model="ilgiAlanlari" value="1">Teknoloji
+            </label>
+        </div>
+
+        <div class="form-group">
+            <label>
+                <input type="checkbox" v-model="ilgiAlanlari" value="2">Sinema
+            </label>
+        </div>
+
+        <input type="submit" value="Kaydol" class="btn btn-primary">
+
+    </form>
+</div>
+
+<script src="../assets/js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        name: 'Vue Demolar',
+        data: {
+            adsoyad: ''
+        },
+        methods : {
+            kaydet(){
+                this.errors = [];
+
+                if(!this.adsoyad) this.errors.push('Adsoyad alanı gerekli')
+
+            }
+        }
+    })
+</script>
+</body>
+</html>

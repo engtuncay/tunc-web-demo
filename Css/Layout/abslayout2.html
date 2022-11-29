@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="fi-bg-greenyellow fi-lay-relative fi-height-400" id="parent">Relative L.
+        <div class="fi-bg-yellow fi-height-100" style="top:400px;left:10px;z-index: 9999;">Static Lay.</div>
+    </div>
+    <div class="fi-bg-red" id="div2">
+        Other Static<br>
+        Div 2
+    </div>
+    <div>
+        Div 3
+    </div>
+    <br>
+    <button onclick="toggleDiv()">Toggle Div2</button>
+    <script>
+        function toggleDiv() {
+            var x = document.getElementById("div2");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        };
+    </script>
+
+</body>
+
+</html>

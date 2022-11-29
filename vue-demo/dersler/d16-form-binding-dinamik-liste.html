@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/app.css">
+</head>
+<body class="p-5">
+<div id="app">
+    <label>
+        Dogum Yeri
+    </label>
+    <select v-model="kullanici.dogumYeri">
+        <option value="">Seçiniz</option>
+        <option v-for="sehir in sehirler" :value="sehir.value">{{sehir.text}}</option>
+    </select>
+</div>
+
+<script src="../assets/js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        name: 'Vue Demolar',
+        data: {
+            kullanici : {
+              dogumYeri:6
+            },
+            sehirler : [
+                {text:'Ankara',value:6},
+                {text:'İstanbul',value:34},
+                {text:'İzmir',value:35}
+            ]
+
+
+        }
+    })
+</script>
+</body>
+</html>
