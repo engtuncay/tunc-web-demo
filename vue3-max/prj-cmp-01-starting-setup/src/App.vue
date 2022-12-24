@@ -4,13 +4,12 @@
 </template>
 
 <script>
-import StoredResources from './components/learning-resources/StoredResources.vue';
+//import StoredResources from './components/learning-resources/StoredResources.vue';
 import TheHeader from './components/layout/TheHeader.vue';
 import TheResource from './components/learning-resources/TheResource.vue';
-
+//StoredResources,
 export default {
   components: {
-    StoredResources,
     TheHeader,
     TheResource
   },
