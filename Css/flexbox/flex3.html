@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Html-Css Examples</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" type="text/css" href="./tw.css" />
+  </head>
+  <body>
+    <!-- üç flex container sahip bir flex, 
+    1. flex sola yaslı 
+    ,3. flex de sağa yaslı olsun 
+    ,ortadakinde itemler ortalansın
+    ,boştaki alanı ortadaki kullansın
+  , flex'lere aşağı satıra kayması istenirse flex-wrap özelliği eklenebilir -->
+    <div class="flex flex-wrap">
+      <div class="flex grow-0 justify-start bg-blue-100">
+        <div class="border-2 border-green-900 border-solid">Lorem11</div>
+      </div>
+
+      <div class="flex grow bg-yellow-100 justify-center gap-2 flex-wrap">
+        <div class="border-2 border-green-900 border-solid">Lorem21</div>
+        <div class="border-2 border-green-900 border-solid">Lorem22</div>
+      </div>
+
+      <div class="flex grow-0 justify-end bg-red-100">
+        <div class="border-2 border-green-900 border-solid">Lorem31</div>
+        <div class="border-2 border-green-900 border-solid">Lorem32</div>
+      </div>
+    </div>
+  </body>
+</html>
+<!-- Auto Complete için eklendi -->
+<!-- background -->
+<!-- bg-blue-100 bg-red-100 bg-yellow-100 -->
+
+<!-- flex -->
+<!-- justify-between justify-start justify-end -->
+<!-- gap-2    -->
+
+<!-- Border -->
+<!-- border-4 border-green-900 border-solid -->
+
+<!-- Width Height -->
+<!--  w-1/3 text-xl  -->
+
+<!-- text-center -->
