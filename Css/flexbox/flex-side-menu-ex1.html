@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Html-Css Examples</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style type="text/tailwindcss">
+      @layer utilities {
+        /* .content-auto {
+          content-visibility: auto;
+        } */
+        .btna {
+          @apply px-3 py-1.5 text-sm text-white duration-150 bg-indigo-600 rounded-lg hover:bg-indigo-700 active:shadow-lg;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!--
+
+    -->
+    <div class="w-full bg-red-200">Header</div>
+    <div class="flex flex-wrap w-full bg-green-200">
+      <div id="menu" class="bg-blue-100 w-32">Menu</div>
+      <div class="bg-yellow-100 w-40 flex-grow">Content...</div>
+    </div>
+    <div>
+      <button
+        onclick="clickHideMenu()"
+        class="m-1 btna"
+      >
+        Hide Menu
+      </button>
+    </div>
+
+    <script>
+      function clickHideMenu(event) {
+        //alert("clicked");
+        let menu = document.querySelector("#menu");
+        //console.log(menu);
+        menu.classList.toggle("hidden");
+      }
+    </script>
+
+</body>
+</html>
