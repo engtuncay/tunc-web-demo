@@ -64,3 +64,4 @@ typings/
 .vscode/
 /HTML5Application1/nbproject/private/
 /nbproject/private/
+node_modules
