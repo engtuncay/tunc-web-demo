@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style type="text/tailwindcss">
+      @layer utilities {
+        /* .content-auto {
+          content-visibility: auto;
+        } */
+        .btna {
+          @apply px-3 py-1.5 text-sm text-white duration-150 bg-indigo-600 rounded-lg hover:bg-indigo-700 active:shadow-lg;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="header" class="bg-yellow-100">
+      header
+      <button class="btna" onclick="menuOpenClass()">Menu Open/Close</button>
+    </div>
+    <div id="menu" class="absolute top-0 right-0 bg-slate-200">
+      Menu <br />1 <br />2 <br />3
+    </div>
+    <div id="content" class="w-full bg-red-100">
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ea similique
+      exercitationem obcaecati maxime distinctio blanditiis labore. Dolores
+      laboriosam, veritatis quae unde nobis asperiores et nesciunt a accusamus,
+      praesentium iste quasi?
+      <br />
+      Id exercitation ullamco ipsum excepteur ad incididunt voluptate aliquip ea
+      consequat commodo eiusmod sit. Consectetur veniam occaecat ut elit esse ex
+      esse aliqua ipsum magna. Ullamco eiusmod Lorem mollit mollit commodo culpa
+      occaecat esse sunt et. Consequat in reprehenderit amet Lorem duis veniam.
+      Aliquip exercitation deserunt deserunt do ex incididunt voluptate ea
+      eiusmod sit duis velit culpa occaecat. Aliquip amet ea reprehenderit irure
+      exercitation do duis sint fugiat ad ipsum cupidatat. Ipsum cupidatat
+      deserunt velit deserunt Lorem sit excepteur cillum ipsum nulla laborum
+      amet velit quis.
+      <br />
+      Eiusmod consectetur mollit ipsum adipisicing cillum irure non excepteur
+      incididunt. Duis tempor sunt amet voluptate est sunt aliquip labore fugiat
+      in mollit laboris amet. Ex ut laboris esse ex commodo cillum duis laborum
+      reprehenderit do. Consectetur eiusmod sint occaecat esse exercitation esse
+      in tempor proident.
+      <br />
+      Esse veniam enim ut id dolore enim fugiat in excepteur laborum
+      reprehenderit id. Sit incididunt mollit tempor labore aute anim anim
+      deserunt sint enim. Occaecat nisi non duis tempor dolor voluptate nisi
+      esse veniam non consectetur cupidatat dolor ex. Incididunt aliquip dolor
+      voluptate veniam elit voluptate cupidatat mollit non eu aliquip laboris
+      incididunt laborum. Enim nostrud ullamco anim ut eu officia ullamco do
+      aute. Aliqua aliquip eiusmod occaecat anim Lorem nostrud ullamco in.
+      <br />
+      Cupidatat sunt id non aliquip Lorem consequat officia aute mollit proident
+      aute reprehenderit. Cupidatat ipsum incididunt sint esse ad sint labore
+      reprehenderit. Incididunt laborum aliquip Lorem sint aute aute incididunt
+      deserunt nulla ex irure.
+      <br />
+      Duis elit ea elit cillum nisi. Excepteur officia ad id voluptate ipsum
+      consequat ullamco mollit qui nostrud qui ipsum. Amet ea nisi exercitation
+      laboris aute. Nostrud proident amet pariatur aute. Elit laborum in do
+      reprehenderit ullamco laboris consectetur commodo amet incididunt eu
+      labore irure.
+      <br />
+      In minim aliqua labore aliquip ipsum in ea. Esse veniam pariatur duis
+      excepteur enim fugiat ipsum irure ipsum. Voluptate ut aliquip consectetur
+      esse quis qui sunt. Eiusmod ipsum in aliquip consectetur magna pariatur
+      nulla dolore culpa in ut duis. Amet enim officia id deserunt ea.
+      <br />
+      Eiusmod sint labore enim sit ea et veniam cupidatat qui aute sint nulla
+      sit. Fugiat tempor cupidatat excepteur excepteur. Tempor voluptate
+      pariatur dolor excepteur eu id fugiat ex ad duis ullamco consectetur
+      nostrud consectetur. Quis aute est officia consectetur proident anim ut.
+      Laboris do ea deserunt velit voluptate laborum ipsum duis sint id eiusmod
+      quis eiusmod proident. Do officia aute eu nisi anim laborum nisi enim
+      eiusmod enim magna. Id pariatur eu id magna aliqua consectetur.
+      <br />
+      Cupidatat pariatur adipisicing commodo eiusmod ut esse anim fugiat. Anim
+      ipsum aute fugiat nostrud tempor aliquip sint adipisicing amet. Ad fugiat
+      do anim nulla exercitation aliqua culpa id eu irure cillum sint ea ut. Qui
+      enim non non voluptate.
+    </div>
+    <div id="footer" class="bg-green-100">footer</div>
+    <script>
+      function menuOpenClass() {
+        let myDiv = document.querySelector("#menu");
+        //console.log(menu);
+        myDiv.classList.toggle("hidden");
+      }
+
+      // window.addEventListener("click", function (e) {
+      //   if (document.getElementById("menu").contains(e.target)) {
+      //     // Clicked in box
+      //   } else {
+      //     // Clicked outside the box
+      //     let myDiv = document.querySelector("#menu");
+      //     myDiv.classList.toggle("hidden");
+      //   }
+      // });
+    </script>
+  </body>
+</html>
