@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="" />
+    <style>
+      .grid-container {
+        background-color: rgb(254 226 226);
+        /* border: 1px solid; */
+        grid-gap: 1px;
+      }
+      .grid-item {
+        border: 1px solid;
+        margin: -1px;
+      }
+    </style>
+  </head>
+  <body class="">
+    <div id="body-container" class="h-screen p-2 bg-blue-100">
+      <div id="header" class="h-5 bg-red-100">Header</div>
+      <div class="grid grid-cols-2 bg-green-100 grid-container">
+        <div class="w-10 grid-item h-28">1</div>
+        <div class="w-full grid-item">2</div>
+      </div>
+    </div>
+  </body>
+</html>

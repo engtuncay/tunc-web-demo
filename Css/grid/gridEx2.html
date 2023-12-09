@@ -11,20 +11,23 @@
     <style>
       .grid-container {
         background-color: rgb(254 226 226);
-        display: grid;
-        grid-template-columns: auto auto auto;
-        border-top: 1px solid;
-        border-left: 1px solid;
+        /* border-top: 1px solid; */
+        /* border-left: 1px solid; */
+        border: 1px solid;
+        grid-gap: 1px;
       }
       .grid-item {
         /* outline: 1px solid black; */
-        border-bottom: 1px solid;
-        border-right: 1px solid;
+        /* border-bottom: 1px solid; */
+        /* border-right: 1px solid; */
+        border: 1px solid;
+        margin: -1px;
       }
     </style>
   </head>
   <body>
-    <div class="m-3 bg-green-100 grid-container gt3">
+    Grid with Tailwind (preventing double border problem)
+    <div class="grid grid-cols-3 m-3 bg-green-100 grid-container">
       <div class="grid-item">1</div>
       <div class="grid-item">2</div>
       <div class="grid-item">3</div>
