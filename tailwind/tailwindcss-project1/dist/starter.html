@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Website design width tailwind css from scratch - cihankoc.com.tr
+    </title>
+
+    <!-- CSS -->
+    <link href="./assets/css/style.css" rel="stylesheet" />
+
+    <!-- BOX ICON -->
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet" />
+  </head>
+
+  <body
+    class="font-[Poppins] bg-gray-50 dark:bg-zinc-900 text-gray-900 dark:text-gray-100">
+    <div class="container mx-auto px-5">
+      <!-- NAVBAR -->
+      <div class="flex flex-col md:flex-row items-center justify-between">
+        <a href="#" class="text-3xl font-extrabold text-orange-600 py-6">
+          LAMBORGHINI
+        </a>
+
+        <nav class="flex flex-col sm:flex-row gap-8 items-center">
+          <ul class="flex gap-x-8 items-center">
+            <li class="hover:scale-110 duration-500 hover:text-orange-600">
+              <a href="#">Home</a>
+            </li>
+
+            <li class="hover:scale-110 duration-500 hover:text-orange-600">
+              <a href="#">Contact</a>
+            </li>
+          </ul>
+
+          <div class="flex items-center justify-center gap-8">
+            <button class="btn">SHOP</button>
+
+            <button id="theme-mode" class="text-2xl">
+              <i class='bx bxs-sun dark:!hidden'></i>
+              <i class='bx bxs-moon !hidden dark:!inline'></i>
+            </button>
+          </div>
+
+        </nav>
+      </div>
+
+      <!-- CONTENT -->
+      <section class="text-center mt-20">
+        <img src="./assets/images/car.webp" alt="LAMBORGHINI" class="rounded-md max-w-full">
+
+        <h1 class="text-2xl mt-12 mb-10">CREATE YOUR REVUELTO</h1>
+
+        <button class="btn">Buy Now</button>
+      </section>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script src="./assets/js/app.js"></script>
+  </body>
+</html>

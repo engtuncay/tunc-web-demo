@@ -1,0 +1,6 @@
+Steps:
+
+Open project on VS-Code 
+Open terminal
+Download packages: npm install
+Build and Watch tailwindcss: npm run start

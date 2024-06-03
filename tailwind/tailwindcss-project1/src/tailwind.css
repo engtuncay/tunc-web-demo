@@ -1,0 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*::-webkit-scrollbar { @apply w-2 h-2 bg-gray-200 } 
+*::-webkit-scrollbar-track { @apply  bg-gray-300 w-0.5 border border-solid border-white }
+*::-webkit-scrollbar-button { @apply hidden }
+*::-webkit-scrollbar-thumb { @apply bg-zinc-800 }
+
+.btn {
+  @apply bg-orange-600 hover:bg-orange-700 text-white font-semibold rounded-full px-10 py-2 transition-all duration-300;
+}
