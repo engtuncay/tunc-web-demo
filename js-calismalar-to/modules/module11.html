@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+<script type="module">
+  alert('Module Script:' + typeof button); // object: the script can 'see' the button below
+  // as modules are deferred, the script runs after the whole page is loaded
+</script>
+
+Compare to regular script below:
+
+<script>
+  alert('Regular Script:' + typeof button); // button is undefined, the script can't see elements below
+  // regular scripts run immediately, before the rest of the page is processed
+</script>
+
+<button id="button">Button</button>
+
+
+</body>
+</html>
