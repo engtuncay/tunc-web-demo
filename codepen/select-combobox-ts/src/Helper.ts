@@ -53,7 +53,7 @@ export function findMatches(options, search) {
 }
 
 // return combobox action from key press (mesela aşağı ok'un action MenuActions.Next)
-function getActionFromKey(event, menuOpen) {
+export function getActionFromKey(event, menuOpen) {
   const { key, altKey, ctrlKey, metaKey } = event;
   // handle opening when closed
   if (
@@ -90,7 +90,7 @@ function getActionFromKey(event, menuOpen) {
 // get index of option that matches a string
 // if the filter is multiple iterations of the same letter (e.g "aaa"),
 // then return the nth match of the single letter
-function getIndexByLetter(options, filter) {
+export function getIndexByLetter(options, filter) {
   const firstMatch = filterOptions(options, filter)[0];
   const allSameLetter = (array) => array.every((letter) => letter === array[0]);
   console.log("testing string", filter);
@@ -107,7 +107,7 @@ function getIndexByLetter(options, filter) {
 }
 
 // get updated option index
-function getUpdatedIndex(current, max, action) {
+export function getUpdatedIndex(current, max, action) {
   switch (action) {
     case MenuActions.First:
       return 0;
@@ -123,12 +123,12 @@ function getUpdatedIndex(current, max, action) {
 }
 
 // check if an element is currently scrollable
-function isScrollable(element) {
+export function isScrollable(element) {
   return element && element.clientHeight < element.scrollHeight;
 }
 
 // ensure given child element is within the parent's visible scroll area
-function maintainScrollVisibility(activeElement, scrollParent) {
+export function maintainScrollVisibility(activeElement, scrollParent) {
   const { offsetHeight, offsetTop } = activeElement;
   const { offsetHeight: parentOffsetHeight, scrollTop } = scrollParent;
 

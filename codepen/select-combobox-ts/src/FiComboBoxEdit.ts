@@ -1,3 +1,15 @@
+import {
+  Keys,
+  MenuActions,
+  filterOptions,
+  findMatches,
+  getUpdatedIndex,
+  getActionFromKey,
+  getIndexByLetter,
+  maintainScrollVisibility,
+  isScrollable,
+} from "./Helper";
+
 /*
  * Editable Combobox code
  */
@@ -27,7 +39,7 @@ export class FiComboBoxEdit {
   }
 
   init() {
-    this.inputEl.value = options[0];
+    this.inputEl.value = this.options[0];
 
     this.inputEl.addEventListener("input", this.onInput.bind(this));
     this.inputEl.addEventListener("blur", this.onInputBlur.bind(this));

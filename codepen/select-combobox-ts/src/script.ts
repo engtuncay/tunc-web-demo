@@ -1,5 +1,15 @@
 import { FiComboBoxEdit } from "./FiComboBoxEdit";
-import { Keys, MenuActions, filterOptions, findMatches } from "./Helper";
+import {
+  Keys,
+  MenuActions,
+  filterOptions,
+  findMatches,
+  getUpdatedIndex,
+  getActionFromKey,
+  getIndexByLetter,
+  maintainScrollVisibility,
+  isScrollable,
+} from "./Helper";
 
 /*
  * Helper constants and functions

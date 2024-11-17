@@ -1,12 +1,11 @@
 {
   "compilerOptions": {
     "target": "ES6",
-    "module": "ES6",
+    "module": "None",
     "strict": false,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-    "outDir": "./dist"
+    "outFile": "./dist/script.js"
   },
   "include": ["src"]
 }
