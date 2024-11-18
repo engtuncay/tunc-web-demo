@@ -202,7 +202,7 @@ selectComponent.init();
 /*
  * Multiselect code
  */
-const Multiselect = function (el, options) {
+const FiMultiselect = function (el, options) {
   // element refs
   this.el = el;
   this.inputEl = el.querySelector("input");
@@ -219,7 +219,7 @@ const Multiselect = function (el, options) {
   this.open = false;
 };
 
-Multiselect.prototype.init = function () {
+FiMultiselect.prototype.init = function () {
   this.inputEl.addEventListener("input", this.onInput.bind(this));
   this.inputEl.addEventListener("blur", this.onInputBlur.bind(this));
   this.inputEl.addEventListener("click", () => this.updateMenuState(true));
@@ -244,7 +244,7 @@ Multiselect.prototype.init = function () {
   });
 };
 
-Multiselect.prototype.onInput = function () {
+FiMultiselect.prototype.onInput = function () {
   const curValue = this.inputEl.value;
   const matches = filterOptions(this.options, curValue);
 
@@ -263,7 +263,7 @@ Multiselect.prototype.onInput = function () {
   }
 };
 
-Multiselect.prototype.onInputKeyDown = function (event) {
+FiMultiselect.prototype.onInputKeyDown = function (event) {
   const max = this.options.length - 1;
 
   const action = getActionFromKey(event, this.open);
@@ -288,7 +288,7 @@ Multiselect.prototype.onInputKeyDown = function (event) {
   }
 };
 
-Multiselect.prototype.onInputBlur = function () {
+FiMultiselect.prototype.onInputBlur = function () {
   if (this.ignoreBlur) {
     this.ignoreBlur = false;
     return;
@@ -299,7 +299,7 @@ Multiselect.prototype.onInputBlur = function () {
   }
 };
 
-Multiselect.prototype.onOptionChange = function (index) {
+FiMultiselect.prototype.onOptionChange = function (index) {
   this.activeIndex = index;
   this.inputEl.setAttribute("aria-activedescendant", `${this.idBase}-${index}`);
 
@@ -315,17 +315,17 @@ Multiselect.prototype.onOptionChange = function (index) {
   }
 };
 
-Multiselect.prototype.onOptionClick = function (index) {
+FiMultiselect.prototype.onOptionClick = function (index) {
   this.onOptionChange(index);
   this.updateOption(index);
   this.inputEl.focus();
 };
 
-Multiselect.prototype.onOptionMouseDown = function () {
+FiMultiselect.prototype.onOptionMouseDown = function () {
   this.ignoreBlur = true;
 };
 
-Multiselect.prototype.removeOption = function (index) {
+FiMultiselect.prototype.removeOption = function (index) {
   const option = this.options[index];
 
   // update aria-selected
@@ -338,7 +338,7 @@ Multiselect.prototype.removeOption = function (index) {
   this.selectedEl.removeChild(buttonEl.parentElement);
 };
 
-Multiselect.prototype.selectOption = function (index) {
+FiMultiselect.prototype.selectOption = function (index) {
   const selected = this.options[index];
   this.activeIndex = index;
 
@@ -363,7 +363,7 @@ Multiselect.prototype.selectOption = function (index) {
   this.selectedEl.appendChild(listItem);
 };
 
-Multiselect.prototype.updateOption = function (index) {
+FiMultiselect.prototype.updateOption = function (index) {
   const option = this.options[index];
   const optionEl = this.el.querySelectorAll("[role=option]")[index];
   const isSelected = optionEl.getAttribute("aria-selected") === "true";
@@ -377,7 +377,7 @@ Multiselect.prototype.updateOption = function (index) {
   this.inputEl.value = "";
 };
 
-Multiselect.prototype.updateMenuState = function (open, callFocus = true) {
+FiMultiselect.prototype.updateMenuState = function (open, callFocus = true) {
   this.open = open;
 
   this.inputEl.setAttribute("aria-expanded", `${open}`);
@@ -388,7 +388,7 @@ Multiselect.prototype.updateMenuState = function (open, callFocus = true) {
 // init multiselect
 const multiselectEl = document.querySelector(".js-multiselect");
 
-const multiselectComponent = new Multiselect(multiselectEl, options);
+const multiselectComponent = new FiMultiselect(multiselectEl, options);
 multiselectComponent.init();
 
 //document.getElementById("").innerHTML;
