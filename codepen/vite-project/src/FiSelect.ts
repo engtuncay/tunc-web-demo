@@ -1,47 +1,52 @@
 import {
   MenuActions,
-  filterOptions,
   getUpdatedIndex,
   getActionFromKey,
   maintainScrollVisibility,
   isScrollable,
+  getIndexByLetter,
 } from "./Helper";
 
-/*
- * Editable Combobox code
- */
-export class FiComboBoxEdit {
-  el: Element;
-  inputEl: HTMLInputElement;
-  listboxEl: Element;
-  idBase;
-  options;
-  activeIndex;
-  open;
-  ignoreBlur;
+export class FiSelect {
+  el: any;
+  comboEl: any;
+  valueEl: any;
+  listboxEl: any;
+  idBase: any;
+  options: any;
+  activeIndex: number;
+  open: boolean;
+  searchString: string;
+  searchTimeout;
+  ignoreBlur: any;
 
-  constructor(el: Element, options) {
+  /*
+   * Read-only select code
+   */
+  constructor(el, options) {
     // element refs
     this.el = el;
-    this.inputEl = el.querySelector("input");
+    this.comboEl = el.querySelector("[role=combobox]");
+    this.valueEl = this.comboEl.querySelector("span");
     this.listboxEl = el.querySelector("[role=listbox]");
 
     // data
-    this.idBase = this.inputEl.id;
+    this.idBase = this.comboEl.id;
     this.options = options;
 
     // state
     this.activeIndex = 0;
     this.open = false;
+    this.searchString = "";
+    this.searchTimeout = null;
   }
 
   init() {
-    this.inputEl.value = this.options[0];
+    this.valueEl.innerHTML = this.options[0];
 
-    this.inputEl.addEventListener("input", this.onInput.bind(this));
-    this.inputEl.addEventListener("blur", this.onInputBlur.bind(this));
-    this.inputEl.addEventListener("click", () => this.updateMenuState(true));
-    this.inputEl.addEventListener("keydown", this.onInputKeyDown.bind(this));
+    this.comboEl.addEventListener("blur", this.onComboBlur.bind(this));
+    this.comboEl.addEventListener("click", () => this.updateMenuState(true));
+    this.comboEl.addEventListener("keydown", this.onComboKeyDown.bind(this));
 
     this.options.map((option, index) => {
       const optionEl = document.createElement("div");
@@ -52,7 +57,8 @@ export class FiComboBoxEdit {
       optionEl.setAttribute("aria-selected", `${index === 0}`);
       optionEl.innerText = option;
 
-      optionEl.addEventListener("click", () => {
+      optionEl.addEventListener("click", (event) => {
+        event.stopPropagation();
         this.onOptionClick(index);
       });
       optionEl.addEventListener("mousedown", this.onOptionMouseDown.bind(this));
@@ -61,26 +67,21 @@ export class FiComboBoxEdit {
     });
   }
 
-  onInput() {
-    const curValue = this.inputEl.value;
-    const matches = filterOptions(this.options, curValue);
-
-    // set activeIndex to first matching option
-    // (or leave it alone, if the active option is already in the matching set)
-    const filterCurrentOption = matches.filter(
-      (option) => option === this.options[this.activeIndex]
-    );
-    if (matches.length > 0 && !filterCurrentOption.length) {
-      this.onOptionChange(this.options.indexOf(matches[0]));
+  getSearchString(char) {
+    if (typeof this.searchTimeout === "number") {
+      window.clearTimeout(this.searchTimeout);
     }
 
-    const menuState = this.options.length > 0;
-    if (this.open !== menuState) {
-      this.updateMenuState(menuState, false);
-    }
+    this.searchTimeout = window.setTimeout(() => {
+      this.searchString = "";
+    }, 1000);
+
+    this.searchString += char;
+    return this.searchString;
   }
 
-  onInputKeyDown(event) {
+  onComboKeyDown(event) {
+    const { key } = event;
     const max = this.options.length - 1;
 
     const action = getActionFromKey(event, this.open);
@@ -95,19 +96,25 @@ export class FiComboBoxEdit {
           getUpdatedIndex(this.activeIndex, max, action)
         );
       case MenuActions.CloseSelect:
+      case MenuActions.Space:
         event.preventDefault();
         this.selectOption(this.activeIndex);
-        return this.updateMenuState(false);
       case MenuActions.Close:
         event.preventDefault();
         return this.updateMenuState(false);
+      case MenuActions.Type:
+        this.updateMenuState(true);
+        var searchString = this.getSearchString(key);
+        return this.onOptionChange(
+          Math.max(0, getIndexByLetter(this.options, searchString))
+        );
       case MenuActions.Open:
+        event.preventDefault();
         return this.updateMenuState(true);
     }
   }
 
-  onInputBlur() {
-    console.log("onInputBlur triggered");
+  onComboBlur() {
     if (this.ignoreBlur) {
       this.ignoreBlur = false;
       return;
@@ -121,7 +128,7 @@ export class FiComboBoxEdit {
 
   onOptionChange(index) {
     this.activeIndex = index;
-    this.inputEl.setAttribute(
+    this.comboEl.setAttribute(
       "aria-activedescendant",
       `${this.idBase}-${index}`
     );
@@ -133,7 +140,7 @@ export class FiComboBoxEdit {
     });
     options[index].classList.add("option-current");
 
-    if (this.open && isScrollable(this.listboxEl)) {
+    if (isScrollable(this.listboxEl)) {
       maintainScrollVisibility(options[index], this.listboxEl);
     }
   }
@@ -150,7 +157,7 @@ export class FiComboBoxEdit {
 
   selectOption(index) {
     const selected = this.options[index];
-    this.inputEl.value = selected;
+    this.valueEl.innerHTML = selected;
     this.activeIndex = index;
 
     // update aria-selected
@@ -164,8 +171,14 @@ export class FiComboBoxEdit {
   updateMenuState(open, callFocus = true) {
     this.open = open;
 
-    this.inputEl.setAttribute("aria-expanded", `${open}`);
+    this.comboEl.setAttribute("aria-expanded", `${open}`);
     open ? this.el.classList.add("open") : this.el.classList.remove("open");
-    callFocus && this.inputEl.focus();
+    callFocus && this.comboEl.focus();
+
+    // update activedescendant
+    const activeID = open
+      ? `${this.idBase}-${this.activeIndex}`
+      : this.valueEl.id;
+    this.comboEl.setAttribute("aria-activedescendant", activeID);
   }
 }

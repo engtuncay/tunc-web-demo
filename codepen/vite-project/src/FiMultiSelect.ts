@@ -8,26 +8,29 @@ import {
 } from "./Helper";
 
 /*
- * Editable Combobox code
+ * Multiselect code
  */
-export class FiComboBoxEdit {
-  el: Element;
-  inputEl: HTMLInputElement;
-  listboxEl: Element;
-  idBase;
-  options;
-  activeIndex;
-  open;
-  ignoreBlur;
+export class FiMultiSelect {
+  el: any;
+  inputEl: any;
+  listboxEl: any;
+  idBase: any;
+  selectedEl: HTMLElement;
+  options: any;
+  activeIndex: number;
+  open: boolean;
+  ignoreBlur: boolean;
 
-  constructor(el: Element, options) {
+  constructor(el, options) {
     // element refs
     this.el = el;
     this.inputEl = el.querySelector("input");
     this.listboxEl = el.querySelector("[role=listbox]");
 
-    // data
     this.idBase = this.inputEl.id;
+    this.selectedEl = document.getElementById(`${this.idBase}-selected`);
+
+    // data
     this.options = options;
 
     // state
@@ -36,12 +39,11 @@ export class FiComboBoxEdit {
   }
 
   init() {
-    this.inputEl.value = this.options[0];
-
     this.inputEl.addEventListener("input", this.onInput.bind(this));
     this.inputEl.addEventListener("blur", this.onInputBlur.bind(this));
     this.inputEl.addEventListener("click", () => this.updateMenuState(true));
     this.inputEl.addEventListener("keydown", this.onInputKeyDown.bind(this));
+    this.listboxEl.addEventListener("blur", this.onInputBlur.bind(this));
 
     this.options.map((option, index) => {
       const optionEl = document.createElement("div");
@@ -49,7 +51,7 @@ export class FiComboBoxEdit {
       optionEl.id = `${this.idBase}-${index}`;
       optionEl.className =
         index === 0 ? "combo-option option-current" : "combo-option";
-      optionEl.setAttribute("aria-selected", `${index === 0}`);
+      optionEl.setAttribute("aria-selected", "false");
       optionEl.innerText = option;
 
       optionEl.addEventListener("click", () => {
@@ -96,8 +98,7 @@ export class FiComboBoxEdit {
         );
       case MenuActions.CloseSelect:
         event.preventDefault();
-        this.selectOption(this.activeIndex);
-        return this.updateMenuState(false);
+        return this.updateOption(this.activeIndex);
       case MenuActions.Close:
         event.preventDefault();
         return this.updateMenuState(false);
@@ -107,14 +108,12 @@ export class FiComboBoxEdit {
   }
 
   onInputBlur() {
-    console.log("onInputBlur triggered");
     if (this.ignoreBlur) {
       this.ignoreBlur = false;
       return;
     }
 
     if (this.open) {
-      this.selectOption(this.activeIndex);
       this.updateMenuState(false, false);
     }
   }
@@ -140,25 +139,64 @@ export class FiComboBoxEdit {
 
   onOptionClick(index) {
     this.onOptionChange(index);
-    this.selectOption(index);
-    this.updateMenuState(false);
+    this.updateOption(index);
+    this.inputEl.focus();
   }
 
   onOptionMouseDown() {
     this.ignoreBlur = true;
   }
 
+  removeOption(index) {
+    const option = this.options[index];
+
+    // update aria-selected
+    const options = this.el.querySelectorAll("[role=option]");
+    options[index].setAttribute("aria-selected", "false");
+    options[index].classList.remove("option-selected");
+
+    // remove button
+    const buttonEl = document.getElementById(`${this.idBase}-remove-${index}`);
+    this.selectedEl.removeChild(buttonEl.parentElement);
+  }
+
   selectOption(index) {
     const selected = this.options[index];
-    this.inputEl.value = selected;
     this.activeIndex = index;
 
     // update aria-selected
     const options = this.el.querySelectorAll("[role=option]");
-    [...options].forEach((optionEl) => {
-      optionEl.setAttribute("aria-selected", "false");
-    });
     options[index].setAttribute("aria-selected", "true");
+    options[index].classList.add("option-selected");
+
+    // add remove option button
+    const buttonEl = document.createElement("button");
+    const listItem = document.createElement("li");
+    buttonEl.className = "remove-option";
+    buttonEl.type = "button";
+    buttonEl.id = `${this.idBase}-remove-${index}`;
+    buttonEl.setAttribute("aria-describedby", `${this.idBase}-remove`);
+    buttonEl.addEventListener("click", () => {
+      this.removeOption(index);
+    });
+    buttonEl.innerHTML = selected + " ";
+
+    listItem.appendChild(buttonEl);
+    this.selectedEl.appendChild(listItem);
+  }
+
+  updateOption(index) {
+    const option = this.options[index];
+    const optionEl = this.el.querySelectorAll("[role=option]")[index];
+    const isSelected = optionEl.getAttribute("aria-selected") === "true";
+
+    if (isSelected) {
+      this.removeOption(index);
+    } else {
+      this.selectOption(index);
+    }
+
+    this.inputEl.value = "";
   }
 
   updateMenuState(open, callFocus = true) {

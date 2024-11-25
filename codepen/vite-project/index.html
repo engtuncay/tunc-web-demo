@@ -5,10 +5,12 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite + TS</title>
-    <link rel="stylesheet" href="./src/style.css">
+    <link rel="stylesheet" href="./src/style.css" />
   </head>
   <body>
     <label for="combo2" class="combo-label">Editable Combobox Example</label>
+    
+    <!-- js-combobox class  -->
     <div class="combo js-combobox">
       <input
         aria-activedescendant=""
@@ -27,8 +29,10 @@
     <label id="combo3-label" class="combo-label"
       >Multi-select Combobox Example</label
     >
+
     <span id="combo3-remove" style="display: none">remove</span>
     <!-- used as descriptive text for option buttons; if used within the button text itself, it ends up being read with the input name -->
+
     <ul class="selected-options" id="combo3-selected"></ul>
     <div class="combo js-multiselect">
       <input
