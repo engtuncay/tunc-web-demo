@@ -145,4 +145,3 @@ export function maintainScrollVisibility(activeElement, scrollParent) {
     scrollParent.scrollTo(0, offsetTop - parentOffsetHeight + offsetHeight);
   }
 }
-3;
