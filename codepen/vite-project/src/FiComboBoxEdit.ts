@@ -37,7 +37,8 @@ export class FiComboBoxEdit {
 
   init() {
     this.inputEl.value = this.options[0];
-
+        
+    //console.dir(this.onInput.bind(this));
     this.inputEl.addEventListener("input", this.onInput.bind(this));
     this.inputEl.addEventListener("blur", this.onInputBlur.bind(this));
     this.inputEl.addEventListener("click", () => this.updateMenuState(true));
@@ -107,7 +108,7 @@ export class FiComboBoxEdit {
   }
 
   onInputBlur() {
-    console.log("onInputBlur triggered");
+    //console.log("onInputBlur triggered");
     if (this.ignoreBlur) {
       this.ignoreBlur = false;
       return;
