@@ -11,7 +11,7 @@ import {
  * Editable Combobox code
  */
 export class FiComboBoxEdit {
-  el;
+  el: Element;
   inputEl;
   listboxEl;
   idBase;
@@ -20,7 +20,7 @@ export class FiComboBoxEdit {
   open;
   ignoreBlur;
 
-  constructor(el, options) {
+  constructor(el: Element, options) {
     // element refs
     this.el = el;
     this.inputEl = el.querySelector("input");

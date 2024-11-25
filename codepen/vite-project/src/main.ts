@@ -15,7 +15,7 @@ import {
 } from "./Helper";
 
 // init combo
-const comboEl = document.querySelector(".js-combobox");
+const elCombo: Element = document.querySelector(".js-combobox");
 
 const options = [
   "Apple",
@@ -31,7 +31,7 @@ const options = [
   "Huckleberry",
 ];
 
-const comboComponent = new FiComboBoxEdit(comboEl, options);
+const comboComponent = new FiComboBoxEdit(elCombo, options);
 comboComponent.init();
 
 /*
