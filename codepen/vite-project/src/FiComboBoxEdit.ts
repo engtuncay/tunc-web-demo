@@ -11,23 +11,23 @@ import {
  * Editable Combobox code
  */
 export class FiComboBoxEdit {
-  el: Element;
-  inputEl: HTMLInputElement;
-  listboxEl: Element;
+  elDiv: Element;
+  elInput: HTMLInputElement;
+  elListboxDiv: Element;
   idBase;
-  options;
+  options: any[];
   activeIndex;
-  open;
+  open: boolean;
   ignoreBlur;
 
-  constructor(el: Element, options) {
-    // element refs
-    this.el = el;
-    this.inputEl = el.querySelector("input");
-    this.listboxEl = el.querySelector("[role=listbox]");
+  constructor(el: Element, options: any[]) {
+    // element refs (js-combobox sınıfı tanımlı element-div)
+    this.elDiv = el;
+    this.elInput = el.querySelector("input");
+    this.elListboxDiv = el.querySelector("[role=listbox]");
 
     // data
-    this.idBase = this.inputEl.id;
+    this.idBase = this.elInput.id;
     this.options = options;
 
     // state
@@ -36,13 +36,15 @@ export class FiComboBoxEdit {
   }
 
   init() {
-    this.inputEl.value = this.options[0];
-        
+    if (this.getOptionsInit().length > 0) {
+      this.elInput.value = this.options[0];
+    }
+
     //console.dir(this.onInput.bind(this));
-    this.inputEl.addEventListener("input", this.onInput.bind(this));
-    this.inputEl.addEventListener("blur", this.onInputBlur.bind(this));
-    this.inputEl.addEventListener("click", () => this.updateMenuState(true));
-    this.inputEl.addEventListener("keydown", this.onInputKeyDown.bind(this));
+    this.elInput.addEventListener("input", this.onInput.bind(this));
+    this.elInput.addEventListener("blur", this.onInputBlur.bind(this));
+    this.elInput.addEventListener("click", () => this.updateMenuState(true));
+    this.elInput.addEventListener("keydown", this.onInputKeyDown.bind(this));
 
     this.options.map((option, index) => {
       const optionEl = document.createElement("div");
@@ -58,12 +60,12 @@ export class FiComboBoxEdit {
       });
       optionEl.addEventListener("mousedown", this.onOptionMouseDown.bind(this));
 
-      this.listboxEl.appendChild(optionEl);
+      this.elListboxDiv.appendChild(optionEl);
     });
   }
 
   onInput() {
-    const curValue = this.inputEl.value;
+    const curValue = this.elInput.value;
     const matches = filterOptions(this.options, curValue);
 
     // set activeIndex to first matching option
@@ -122,20 +124,20 @@ export class FiComboBoxEdit {
 
   onOptionChange(index) {
     this.activeIndex = index;
-    this.inputEl.setAttribute(
+    this.elInput.setAttribute(
       "aria-activedescendant",
       `${this.idBase}-${index}`
     );
 
     // update active style
-    const options = this.el.querySelectorAll("[role=option]");
+    const options = this.elDiv.querySelectorAll("[role=option]");
     [...options].forEach((optionEl) => {
       optionEl.classList.remove("option-current");
     });
     options[index].classList.add("option-current");
 
-    if (this.open && isScrollable(this.listboxEl)) {
-      maintainScrollVisibility(options[index], this.listboxEl);
+    if (this.open && isScrollable(this.elListboxDiv)) {
+      maintainScrollVisibility(options[index], this.elListboxDiv);
     }
   }
 
@@ -151,11 +153,11 @@ export class FiComboBoxEdit {
 
   selectOption(index) {
     const selected = this.options[index];
-    this.inputEl.value = selected;
+    this.elInput.value = selected;
     this.activeIndex = index;
 
     // update aria-selected
-    const options = this.el.querySelectorAll("[role=option]");
+    const options = this.elDiv.querySelectorAll("[role=option]");
     [...options].forEach((optionEl) => {
       optionEl.setAttribute("aria-selected", "false");
     });
@@ -165,8 +167,17 @@ export class FiComboBoxEdit {
   updateMenuState(open, callFocus = true) {
     this.open = open;
 
-    this.inputEl.setAttribute("aria-expanded", `${open}`);
-    open ? this.el.classList.add("open") : this.el.classList.remove("open");
-    callFocus && this.inputEl.focus();
+    this.elInput.setAttribute("aria-expanded", `${open}`);
+    open
+      ? this.elDiv.classList.add("open")
+      : this.elDiv.classList.remove("open");
+    callFocus && this.elInput.focus();
+  }
+
+  public getOptionsInit(): any[] {
+    if (this.options == undefined) {
+      this.options = [];
+    }
+    return this.options;
   }
 }
