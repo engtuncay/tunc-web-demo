@@ -72,6 +72,7 @@ export class FiMultiSelect {
     const filterCurrentOption = matches.filter(
       (option) => option === this.options[this.activeIndex]
     );
+
     if (matches.length > 0 && !filterCurrentOption.length) {
       this.onOptionChange(this.options.indexOf(matches[0]));
     }

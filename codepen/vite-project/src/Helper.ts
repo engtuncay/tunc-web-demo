@@ -39,7 +39,7 @@ export const MenuActions = {
 export function filterOptions(options = [], filter, exclude = []) {
   return options.filter((option) => {
     const matches = option.toLowerCase().indexOf(filter.toLowerCase()) === 0;
-    return matches && exclude.indexOf(option) < 0;
+    return matches && exclude.indexOf(option) < 0; // exclude içerisinde olmayacak
   });
 }
 

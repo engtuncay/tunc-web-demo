@@ -4,6 +4,7 @@
 // import { setupCounter } from './counter.ts'
 
 import { FiComboBoxEdit } from "./FiComboBoxEdit";
+import { FiComboBoxEdit2 } from "./FiComboBoxEdit2";
 import { FiMultiSelect } from "./FiMultiSelect";
 import { FiSelect } from "./FiSelect";
 
@@ -35,6 +36,11 @@ selectComponent.init();
 const multiselectEl = document.querySelector(".js-multiselect");
 const multiselectComponent = new FiMultiSelect(multiselectEl, options);
 multiselectComponent.init();
+
+// Editable Combobox (2)
+const elCombo2: Element = document.querySelector(".js-combobox2");
+const comboComponent2 = new FiComboBoxEdit2(elCombo2, options);
+comboComponent2.init();
 
 
 

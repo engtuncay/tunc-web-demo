@@ -10,7 +10,7 @@ import {
 /*
  * Editable Combobox code
  */
-export class FiComboBoxEdit {
+export class FiComboBoxEdit2 {
   elDiv: Element;
   elInput: HTMLInputElement;
   elListboxDiv: Element;
@@ -35,6 +35,7 @@ export class FiComboBoxEdit {
     this.open = false;
   }
 
+  // initialize component
   init() {
     if (this.getOptionsInit().length > 0) {
       this.elInput.value = this.options[0];
@@ -46,14 +47,16 @@ export class FiComboBoxEdit {
     this.elInput.addEventListener("click", () => this.updateMenuState(true));
     this.elInput.addEventListener("keydown", this.onInputKeyDown.bind(this));
 
-    this.options.map((option, index) => {
+    //console.group("options");
+    //seçenekler burada ekleniyor
+    this.options.map((txOption, index) => {
       const optionEl = document.createElement("div");
       optionEl.setAttribute("role", "option");
       optionEl.id = `${this.idBase}-${index}`;
       optionEl.className =
         index === 0 ? "combo-option option-current" : "combo-option";
       optionEl.setAttribute("aria-selected", `${index === 0}`);
-      optionEl.innerText = option;
+      optionEl.innerText = txOption;
 
       optionEl.addEventListener("click", () => {
         this.onOptionClick(index);
@@ -61,10 +64,13 @@ export class FiComboBoxEdit {
       optionEl.addEventListener("mousedown", this.onOptionMouseDown.bind(this));
 
       this.elListboxDiv.appendChild(optionEl);
+      //console.log(optionEl);
     });
+    //console.groupEnd();
   }
 
   onInput() {
+    //console.log("onInput triggered");
     const curValue = this.elInput.value;
     const matches = filterOptions(this.options, curValue);
 
