@@ -12,11 +12,20 @@ import {
  */
 export class FiComboBoxEdit {
   elDiv: Element;
+
   elInput: HTMLInputElement;
-  elListboxDiv: Element;
-  idBase;
+
+  /**
+   * Div is used as ListBox
+   */
+  elListBoxDiv: Element;
+
+  /**
+   * id of input element
+   */
+  idBase: string;
   options: any[];
-  activeIndex;
+  activeIndex: number;
   open: boolean;
   ignoreBlur: boolean;
 
@@ -24,7 +33,7 @@ export class FiComboBoxEdit {
     // element refs (js-combobox sınıfı tanımlı element-div)
     this.elDiv = el;
     this.elInput = el.querySelector("input");
-    this.elListboxDiv = el.querySelector("[role=listbox]");
+    this.elListBoxDiv = el.querySelector("[role=listbox]");
 
     // data
     this.idBase = this.elInput.id;
@@ -46,21 +55,21 @@ export class FiComboBoxEdit {
     this.elInput.addEventListener("click", () => this.updateMenuState(true));
     this.elInput.addEventListener("keydown", this.onInputKeyDown.bind(this));
 
-    this.options.map((option, index) => {
+    this.options.map((txValue, index) => {
       const optionEl = document.createElement("div");
       optionEl.setAttribute("role", "option");
       optionEl.id = `${this.idBase}-${index}`;
       optionEl.className =
         index === 0 ? "combo-option option-current" : "combo-option";
       optionEl.setAttribute("aria-selected", `${index === 0}`);
-      optionEl.innerText = option;
+      optionEl.innerText = txValue;
 
       optionEl.addEventListener("click", () => {
         this.onOptionClick(index);
       });
       optionEl.addEventListener("mousedown", this.onOptionMouseDown.bind(this));
 
-      this.elListboxDiv.appendChild(optionEl);
+      this.elListBoxDiv.appendChild(optionEl);
     });
   }
 
@@ -136,8 +145,8 @@ export class FiComboBoxEdit {
     });
     options[index].classList.add("option-current");
 
-    if (this.open && isScrollable(this.elListboxDiv)) {
-      maintainScrollVisibility(options[index], this.elListboxDiv);
+    if (this.open && isScrollable(this.elListBoxDiv)) {
+      maintainScrollVisibility(options[index], this.elListBoxDiv);
     }
   }
 
