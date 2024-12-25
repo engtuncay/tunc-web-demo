@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+        body {
+            margin-bottom: 500px;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <form>
+            <div class="mb-3">
+                <label class="form-label">Email</label>
+                <input type="email" class="form-control">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Şifre</label>
+                <input type="password" class="form-control">
+            </div>
+            <!-- form-control-lg
+            <div class="mb-3">
+                <label class="form-label">Şifre</label>
+                <input type="password" class="form-control form-control-lg">
+            </div> -->
+            <!-- form-control-sm
+            <div class="mb-3">
+                <label class="form-label">Şifre</label>
+                <input type="password" class="form-control form-control-sm">
+            </div> -->
+
+            <div class="mb-3">
+                <label class="form-label">Telefon</label>
+                <input type="number" class="form-control" disabled>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Telefon</label>
+                <input type="number" class="form-control" value="21312312213" readonly>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Cv Yükle</label>
+                <input type="file" class="form-control">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Adres</label>
+                <textarea class="form-control" rows="3"></textarea>
+            </div>
+
+            <select class="form-select mb-3">
+                <option selected value="">Şehir Seçiniz</option>
+                <option value="1">İstanbul</option>
+                <option value="2">Ankara</option>
+                <option value="3">İzmir</option>
+            </select>
+
+            <!-- <select class="form-select form-select-lg mb-3">
+                <option selected value="">Şehir Seçiniz</option>
+                <option value="1">İstanbul</option>
+                <option value="2">Ankara</option>
+                <option value="3">İzmir</option>
+            </select>
+
+            <select class="form-select form-select-sm mb-3">
+                <option selected value="">Şehir Seçiniz</option>
+                <option value="1">İstanbul</option>
+                <option value="2">Ankara</option>
+                <option value="3">İzmir</option>
+            </select> -->
+
+            <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input">
+                <label class="form-check-label">Kullanıcı Sözleşmesi</label>
+            </div>
+
+            <label class="mb-1">Cinsiyet</label>
+            <div class="mb-3">
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" value="man">
+                    <label class="form-check-label">Erkek</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" value="woman">
+                    <label class="form-check-label">Kadın</label>
+                </div>
+            </div>
+
+            <label class="mb-1">Cinsiyet</label>
+            <div class="mb-3">
+                <div class="form-check form-check-inline">
+                    <input type="checkbox" class="form-check-input" value="man">
+                    <label class="form-check-label">Erkek</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="checkbox" class="form-check-input" value="woman">
+                    <label class="form-check-label">Kadın</label>
+                </div>
+            </div>
+
+
+            <label class="mb-1">Cinsiyet</label>
+            <div class="mb-3">
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" name="gender" value="man">
+                    <label class="form-check-label">Erkek</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" name="gender" value="woman">
+                    <label class="form-check-label">Kadın</label>
+                </div>
+            </div>
+
+            <label class="mb-1">Cinsiyet</label>
+            <div class="mb-3">
+                <div class="form-check form-check-inline">
+                    <input type="radio" class="form-check-input" name="gender" value="man">
+                    <label class="form-check-label">Erkek</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="radio" class="form-check-input" name="gender" value="woman">
+                    <label class="form-check-label">Kadın</label>
+                </div>
+            </div>
+
+            <label class="mb-1">Kullanıcı Adı</label>
+            <div class="input-group mb-3">
+                <span class="input-group-text">@</span>
+                <input type="text" class="form-control" placeholder="Kullanıcı Adınızı Giriniz">
+            </div>
+
+            <label class="mb-1">İş Maili</label>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="İş Mailinizi Giriniz">
+                <span class="input-group-text">@canboz.com</span>
+            </div>
+
+
+            <label class="mb-1">Email</label>
+            <div class="mb-3 form-floating">
+                <input type="email" class="form-control" placeholder="canboz@canboz.com">
+                <label class="form-label">Email</label>
+            </div>
+
+            <label class="mb-1">Şifre</label>
+            <div class="mb-3 form-floating">
+                <input type="password" class="form-control" placeholder="Password">
+                <label class="form-label">Şifre</label>
+            </div>
+        </form>
+    </div>
+    <script src=" js/bootstrap.bundle.min.js">
+    </script>
+</body>
+
+</html>
