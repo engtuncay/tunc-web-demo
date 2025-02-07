@@ -1,0 +1,6 @@
+{
+    "editor.fontSize": 16,
+    "editor.tabSize": 3,
+    "editor.minimap.maxColumn": 99,
+    "liveServer.settings.port": 5502
+}
