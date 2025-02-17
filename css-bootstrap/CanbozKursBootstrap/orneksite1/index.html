@@ -12,6 +12,11 @@
         .nav-link.active {
             color: red !important;
         }
+
+        .fisecHome {
+            background-image: url("image/canbozfoto.png");
+            background-size: cover; // bulunduğu yüksekliğe göre kapla
+        }
     </style>
 </head>
 
@@ -48,9 +53,13 @@
         </div>
     </nav>
 
-    <div id="home" style="min-height: 2000px;">
-
-    </div>
+    <section id="home" class="fisecHome min-vh-100 d-flex flex-column align-items-center justify-content-end">
+        <div class="text-center">
+            <p class="fw-bolder display-3 mb-3">Can Boz</p>
+            <h6 class="fs-3 text-secondary text-capitalize mb-4">Developer</h6>
+        </div>
+        <a class="btn btn-danger rounded-pill mb-2" href="">Hakkımda</a>
+    </section>
 
     <script src="js/bootstrap.bundle.min.js"></script>
 </body>
