@@ -40,7 +40,12 @@
         <!-- .collapse:not(.show) { display: none; } -->
         <!-- .navbar-expand-lg .navbar-collapse { display:flex !imp, flex-basis:auto } -->
         <div class="collapse navbar-collapse justify-content-end" id="menuMain">
+
             <ul class="navbar-nav fw-bold">
+                <!--ul'deki navbar-nav : display:flex, li:user-agent-style da
+                display:list-item olarak tanımlandığı için , display özelliği list-item oluyor.
+                flex olması için li de display-flex ve inline flex tanımı yapılması lazım.
+                -->
                 <li class="nav-item">
                     <a class="nav-link active" href="#home">Anasayfa</a>
                 </li>
