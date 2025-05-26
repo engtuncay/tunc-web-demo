@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+
+  <style>
+      * {
+          font-size: 16px;
+          font-family: monospace;
+          box-sizing: border-box;
+      }
+
+      body {
+          text-align: center;
+          font-size: 0;
+          background: #f1de9a;
+          padding: 1rem 2rem;
+      }
+
+      h1 {
+          font-size: 3rem;
+          margin-bottom: 0 0 2.5rem 0;
+          padding: 0;
+          text-align: center;
+      }
+
+      button {
+          padding: 0.5rem 1rem;
+          margin: 0 0.5rem;
+          border-radius: 4px;
+          border: 2px solid #000;
+          cursor: pointer;
+      }
+
+      #buttonCloseX {
+          position: absolute;
+          right: 0;
+          top: 0;
+          font-size: 2rem;
+          border: none;
+          margin: 0;
+          background: none;
+      }
+
+      dialog {
+          background: #fff;
+          border-radius: 1rem;
+          padding: 2rem 4rem;
+          border: 4px solid #000;
+      }
+
+  </style>
+</head>
+<body>
+
+<h1>HTML5 &lt;dialog&gt; Element</h1>
+<p id="result">Click on the button to open modal</p>
+<button id="openButton">Open Modal</button>
+
+<!-- element -->
+<dialog id="confirmationDialog">
+  <!-- content -->
+  <button aria-label="Close modal" id="buttonCloseX">✖</button>
+
+  <h1>Modal message here</h1>
+  <p>Are you sure to confirm this action?</p>
+
+  <button id="buttonOk">Confirm</button>
+  <button id="buttonClose">Close</button>
+</dialog>
+
+
+<script>
+  // elements IDs attribution
+  const openButton = document.querySelector('#openButton');
+  const confirmationDialog = document.querySelector('#confirmationDialog');
+  const buttonOk = document.querySelector('#buttonOk');
+  const buttonClose = document.querySelector('#buttonClose');
+  const buttonCloseX = document.querySelector('#buttonCloseX');
+  const result = document.querySelector('#result');
+
+  // open dialog
+  openButton.addEventListener('click', () => {
+    // is supported
+    if (typeof confirmationDialog.showModal === 'function') {
+      confirmationDialog.showModal();
+    } else {
+      // is not supported
+      alert(
+        'The dialog HTML5 API is not supported by this browser. Please, update.'
+      );
+    }
+  });
+
+  function handleClose() {
+    confirmationDialog.close();
+    result.textContent = 'Result: <dialog> was closed (click event)';
+  }
+
+  // button1
+  buttonOk.addEventListener('click', () => {
+    confirmationDialog.close();
+    result.textContent = 'Result: <dialog> was confirmed! (click event)';
+    // your confirm logic here...
+  });
+
+  // button2
+  buttonClose.addEventListener('click', () => {
+    handleClose();
+  });
+
+  // button3
+  buttonCloseX.addEventListener('click', () => {
+    handleClose();
+  });
+
+  // esc key
+  confirmationDialog.addEventListener('cancel', (event) => {
+    result.textContent = 'Result: <dialog> was canceled by ESC key press (cancel event)';
+  });
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+      .backdrop {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 100vh;
+          background-color: rgba(0, 0, 0, 0.5); /* Yarı saydam siyah */
+          z-index: 1000; /* Diğer içeriklerin üstünde */
+      }
+
+      .modal {
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          background: white;
+          padding: 2rem;
+          z-index: 1001; /* Backdrop'un (1000) üstünde */
+          border-radius: 8px;
+      }
+
+      .frosted-glass {
+          background-color: rgba(255, 255, 255, 0.2);
+          backdrop-filter: blur(10px);
+          -webkit-backdrop-filter: blur(10px); /* Safari için */
+          padding: 2rem;
+          border-radius: 12px;
+      }
+  </style>
+</head>
+<body>
+
+<button onclick="toggleModal(true)">Modal Aç</button>
+
+<!-- backdrop div fixed position,100%viewport wh, tüm ekranı kaplar -->
+<div id="backdrop" class="backdrop" onclick="toggleModal(false)" style="display: none;"></div>
+<div id="modal" class="modal" style="display: none;">
+  <h2>Modal</h2>
+  <button onclick="toggleModal(false)">Kapat</button>
+</div>
+
+
+<script>
+  function toggleModal(show) {
+    document.getElementById('backdrop').style.display = show ? 'block' : 'none';
+    document.getElementById('modal').style.display = show ? 'block' : 'none';
+  }
+</script>
+
+</body>
+</html>
