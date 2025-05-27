@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="./multiselect.css">
+</head>
+<body>
+
+<label for="combo2" class="combo-label">Editable Combobox Example</label>
+<div class="combo js-combobox">
+    <input
+            aria-activedescendant=""
+            aria-autocomplete="none"
+            aria-controls="listbox2"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            id="combo2"
+            class="combo-input"
+            role="combobox"
+            type="text"
+    />
+    <div class="combo-menu" role="listbox" id="listbox2"></div>
+</div>
+
+
+<script type="module">
+    import { FiComboBoxEdit } from "./FiComboBoxEdit.js";
+
+    /*
+     * Helper constants and functions
+     */
+
+    // init combo
+    const comboEl = document.querySelector(".js-combobox");
+
+    const options = [
+        "Apple",
+        "Banana",
+        "Blueberry",
+        "Boysenberry",
+        "Cherry",
+        "Durian",
+        "Eggplant",
+        "Fig",
+        "Grape",
+        "Guava",
+        "Huckleberry",
+    ];
+
+    const comboComponent = new FiComboBoxEdit(comboEl, options);
+    comboComponent.init();
+</script>
+</body>
+</html>
