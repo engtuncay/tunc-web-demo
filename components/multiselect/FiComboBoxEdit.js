@@ -40,8 +40,8 @@ export class FiComboBoxEdit {
 
     init() {
         this.inputEl.value = this.options[0];
-        console.log('events');
-//event listener
+        //console.log('events');
+        // event listener
         this.inputEl.addEventListener("input", this.onInput.bind(this));
         this.inputEl.addEventListener("blur", this.onInputBlur.bind(this));
         this.inputEl.addEventListener("click", () => this.updateMenuState(true));
