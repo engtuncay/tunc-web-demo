@@ -8,7 +8,7 @@ import {
     getIndexByLetter,
     maintainScrollVisibility,
     isScrollable,
-} from "./helper.js";
+} from "./fiComboHelper.js";
 
 /*
  * Editable Combobox code
