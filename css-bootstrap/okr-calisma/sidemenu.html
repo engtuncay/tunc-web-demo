@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Can Boz</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+
+
+  <style>
+
+  </style>
+</head>
+
+<body>
+<!-- min-width = width > x -->
+<!-- max-width = width < x -->
+<!-- width>992 : navbar-expand-lg -->
+<div id="fiLayout" class="flex flex-row">
+
+<aside id="fiMenu" class="w-25 bg-white">
+  Menu
+  <div class="navbar-vertical-container">
+    
+    <div class="navbar-vertical-footer-offset">
+      <!-- Logo -->
+
+      <a class="navbar-brand d-flex align-items-center justify-content-center" href="<?= base_url('dashboard') ?>" aria-label="Front">
+        <img class="navbar-brand-logo" width="200" src="<?= base_url('assets/img/logo.svg') ?>" alt="<?= settings('company_name') ?>" data-hs-theme-appearance="default">
+        <img class="navbar-brand-logo" width="200" src="<?= base_url('assets/img/logo.svg') ?>" alt="<?= settings('company_name') ?>" data-hs-theme-appearance="dark">
+        <img class="navbar-brand-logo-mini" width="200" src="<?= base_url('assets/img/logo.svg') ?>" alt="<?= settings('company_name') ?>" data-hs-theme-appearance="default">
+        <img class="navbar-brand-logo-mini" width="200" src="<?= base_url('assets/img/logo.svg') ?>" alt="<?= settings('company_name') ?>" data-hs-theme-appearance="dark">
+      </a>
+
+      <!-- End Logo -->
+
+      <!-- Navbar Vertical Toggle -->
+      <button type="button" class="js-navbar-vertical-aside-toggle-invoker navbar-aside-toggler">
+        <i class="bi-arrow-bar-left navbar-toggler-short-align" data-bs-template='<div class="tooltip d-none d-md-block" role="tooltip"><div class="arrow"></div><div class="tooltip-inner"></div></div>' data-bs-toggle="tooltip" data-bs-placement="right" title="Daralt"></i>
+        <i class="bi-arrow-bar-right navbar-toggler-full-align" data-bs-template='<div class="tooltip d-none d-md-block" role="tooltip"><div class="arrow"></div><div class="tooltip-inner"></div></div>' data-bs-toggle="tooltip" data-bs-placement="right" title="Genişlet"></i>
+      </button>
+
+      <!-- End Navbar Vertical Toggle -->
+
+      <!-- Content -->
+      <div class="navbar-vertical-content">
+        <div id="navbarVerticalMenu" class="nav nav-pills nav-vertical card-navbar-nav">
+        
+          <div class="nav-item">
+            <a class="nav-link" target="_blank" href="<?= env('SITE_URL') ?>" data-placement="left">
+              <i class="bi-link nav-icon"></i>
+              <span class="nav-link-title">Siteye Git</span>
+            </a>
+          </div>
+
+          <div class="nav-item">
+            <a class="nav-link" target="_blank" href="<?= base_url('swagger') ?>" data-placement="left">
+              <i class="bi-file-earmark-code nav-icon"></i>
+              <span class="nav-link-title">API Dökümantasyonu</span>
+            </a>
+          </div>
+
+          <div class="nav-item">
+            <a class="nav-link <?= getUriSegment(1) == 'dashboard' || getUriSegment(1) == '' ? 'active' : '' ?>" href="<?= base_url('dashboard') ?>" data-placement="left">
+              <i class="bi-house-door nav-icon"></i>
+              <span class="nav-link-title">Dashboard</span>
+            </a>
+          </div>
+          <div class="nav-item">
+            <a class="nav-link <?= getUriSegment(1) == 'users' ? 'active' : '' ?>" href="<?= base_url('users') ?>" data-placement="left">
+              <i class="bi-people nav-icon"></i>
+              <span class="nav-link-title">Kullanıcılar</span>
+            </a>
+          </div>
+          <span class="dropdown-header mt-4">Modüller</span>
+          <small class="bi-three-dots nav-subtitle-replacer"></small>
+
+
+          <div class="nav-item">
+            <a class="nav-link <?= getUriSegment(1) == 'orders' ? 'active' : '' ?>" href="<?= base_url('orders') ?>" data-placement="left">
+              <i class="bi-cart-check nav-icon"></i>
+              <span class="nav-link-title">Siparişler</span>
+            </a>
+          </div>
+      
+          <div class="nav-item">
+            <a class="nav-link <?= getUriSegment(1) == 'representatives' ? 'active' : '' ?>" href="<?= base_url('representatives') ?>" data-placement="left">
+              <i class="bi-person-workspace nav-icon"></i>
+              <span class="nav-link-title">Temsilciler</span>
+            </a>
+          </div>
+
+
+          <div class="nav-item">
+            <a class="nav-link <?= getUriSegment(1) == 'customers' ? 'active' : '' ?>" href="<?= base_url('customers') ?>" data-placement="left">
+              <i class="bi-person-circle nav-icon"></i>
+              <span class="nav-link-title">Müşteriler</span>
+            </a>
+          </div>
+
+
+         
+          <div class="nav-item">
+            <a class="nav-link <?= getUriSegment(1) == 'products' ? 'active' : '' ?>" href="<?= base_url('products') ?>" data-placement="left">
+              <i class="bi-box nav-icon"></i>
+              <span class="nav-link-title">Ürünler</span>
+            </a>
+          </div>
+
+          <div class="nav-item">
+            <a class="nav-link <?= getUriSegment(1) == 'product-brands' ? 'active' : '' ?>" href="<?= base_url('product-brands') ?>" data-placement="left">
+              <i class="bi-box2 nav-icon"></i>
+              <span class="nav-link-title">Markalar</span>
+            </a>
+          </div>
+
+          <div class="nav-item">
+            <a class="nav-link <?= getUriSegment(1) == 'sliders' ? 'active' : '' ?>" href="<?= base_url('sliders') ?>" data-placement="left">
+              <i class="bi-images nav-icon"></i>
+              <span class="nav-link-title">Slider</span>
+            </a>
+          </div>
+
+          <div class="nav-item">
+            <a class="nav-link <?= getUriSegment(1) == 'pages' ? 'active' : '' ?>" href="<?= base_url('pages') ?>" data-placement="left">
+              <i class="bi-file-text nav-icon"></i>
+              <span class="nav-link-title">Sayfalar</span>
+            </a>
+          </div>
+
+          <div class="nav-item">
+            <a class="nav-link <?= getUriSegment(1) == 'settings' ? 'active' : '' ?>" href="<?= base_url('settings') ?>" data-placement="left">
+              <i class="bi-gear nav-icon"></i>
+              <span class="nav-link-title">Ayarlar</span>
+            </a>
+          </div>
+
+          
+
+      
+
+        </div>
+        <!-- End Content -->
+
+        <!-- Footer -->
+        <div class="navbar-vertical-footer">
+          <ul class="navbar-vertical-footer-list">
+            <li class="navbar-vertical-footer-list-item">
+              <!-- Style Switcher -->
+              <div class="dropdown dropup">
+                <button type="button" class="btn btn-ghost-secondary btn-icon rounded-circle" id="selectThemeDropdown" data-bs-toggle="dropdown" aria-expanded="false" data-bs-dropdown-animation>
+
+                </button>
+
+                <div class="dropdown-menu navbar-dropdown-menu navbar-dropdown-menu-borderless" aria-labelledby="selectThemeDropdown">
+                  <a class="dropdown-item" href="#" data-icon="bi-moon-stars" data-value="auto">
+                    <i class="bi-moon-stars me-2"></i>
+                    <span class="text-truncate" title="Otomatik (sistem varsayılanı)">Otomatik (sistem varsayılanı)</span>
+                  </a>
+                  <a class="dropdown-item" href="#" data-icon="bi-brightness-high" data-value="default">
+                    <i class="bi-brightness-high me-2"></i>
+                    <span class="text-truncate" title="Açık">Açık</span>
+                  </a>
+                  <a class="dropdown-item active" href="#" data-icon="bi-moon" data-value="dark">
+                    <i class="bi-moon me-2"></i>
+                    <span class="text-truncate" title="Koyu">Koyu</span>
+                  </a>
+                </div>
+              </div>
+
+              <!-- End Style Switcher -->
+            </li>
+
+          </ul>
+        </div>
+        <!-- End Footer -->
+      </div>
+    </div>
+</aside>
+ <div id="fiContent">
+   
+ </div>
+  
+  </div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
