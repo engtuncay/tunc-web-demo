@@ -20,7 +20,7 @@
     "notiflix": "^3.2.8",
     "tom-select": "^2.1.0"
   },
-  "copyDepsLibFolder": "fiLibs",
+  "copyDepsLibFolder": "bootstrap5/fiLibs",
   "copyDepsModulesToCopy": [
     {
       "name": "bootstrap",

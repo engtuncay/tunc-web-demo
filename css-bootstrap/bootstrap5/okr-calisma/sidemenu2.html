@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bs5</title>
+    <link href="/fiLibs/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link
+      href="/fiLibs/bootstrap-icons/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      .list-group-item:hover {
+        cursor: pointer;
+        background-color: #999;
+        border: none;
+        color: #fff;
+      }
+
+      .w-0 {
+        width: 0px !important;
+      }
+
+      #CtrlLeft,
+      #CtrlRight {
+        background-color: #999;
+        cursor: pointer;
+        -webkit-transition: 0.4s;
+        -moz-transition: 0.4s;
+        transition: 0.4s;
+      }
+
+      #CtrlLeft:hover,
+      #CtrlRight:hover {
+        -webkit-transform: rotate(180deg);
+        -moz-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+        transform: rotate(180deg);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="mainContainer" class="d-flex flex-row">
+      <div id="fiSidebar" class="border-end text-warning overflow-visible">
+        <div id="sideLogo" class="text-end my-3">
+          <span id="SideBarTitle" class="h3 float-start clearfix">
+            <img
+              class="navbar-brand-logo"
+              width="200"
+              src="<?= base_url('assets/img/logo.svg') ?>"
+              alt="<?= settings('company_name') ?>"
+              data-hs-theme-appearance="default"
+            />
+          </span>
+        </div>
+
+        <div id="fiAccordionMenu" class="accordion">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+              <button
+                class="accordion-button"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseOne"
+                aria-expanded="true"
+                aria-controls="collapseOne"
+              >
+                Yönetim
+              </button>
+            </h2>
+
+            <div
+              id="collapseOne"
+              class="accordion-collapse collapse show"
+              aria-labelledby="headingOne"
+              data-bs-parent="#accordionExample"
+            >
+              <div class="accordion-body">
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">
+                    <a
+                      class="nav-link"
+                      target="_blank"
+                      href="<?= env('SITE_URL') ?>"
+                      data-placement="left"
+                    >
+                      <i class="bi-link nav-icon"></i>
+                      <span class="nav-link-title">Siteye Git</span>
+                    </a>
+                  </li>
+                  <li class="list-group-item">
+                    <a
+                      class="nav-link"
+                      target="_blank"
+                      href="<?= base_url('swagger') ?>"
+                      data-placement="left"
+                    >
+                      <i class="bi-file-earmark-code nav-icon"></i>
+                      <span class="nav-link-title">API Dökümantasyonu</span>
+                    </a>
+                  </li>
+                  <li
+                    class="list-group-item <?= getUriSegment(1) == 'dashboard' || getUriSegment(1) == '' ? 'active' : '' ?>"
+                  >
+                    <a
+                      class="nav-link"
+                      href="<?= base_url('dashboard') ?>"
+                      data-placement="left"
+                    >
+                      <i class="bi-house-door nav-icon"></i>
+                      <span class="nav-link-title">Dashboard</span>
+                    </a>
+                  </li>
+                  <li
+                    class="list-group-item <?= getUriSegment(1) == 'users' ? 'active' : '' ?>"
+                  >
+                    <a
+                      class="nav-link"
+                      href="<?= base_url('users') ?>"
+                      data-placement="left"
+                    >
+                      <i class="bi-people nav-icon"></i>
+                      <span class="nav-link-title">Kullanıcılar</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwo">
+              <button
+                class="accordion-button"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseTwo"
+                aria-expanded="true"
+                aria-controls="collapseTwo"
+              >
+                Modüller
+              </button>
+            </h2>
+
+            <div
+              id="collapseTwo"
+              class="accordion-collapse collapse show"
+              aria-labelledby="headingTwo"
+              data-bs-parent="#accordionExample"
+            >
+              <div class="accordion-body">
+                <ul class="list-group list-group-flush">
+                  <li
+                    class="list-group-item <?= getUriSegment(1) == 'orders' ? 'active' : '' ?>"
+                  >
+                    <a
+                      class="nav-link"
+                      href="<?= base_url('orders') ?>"
+                      data-placement="left"
+                    >
+                      <i class="bi-cart-check nav-icon"></i>
+                      <span class="nav-link-title">Siparişler</span>
+                    </a>
+                  </li>
+                  <li
+                    class="list-group-item <?= getUriSegment(1) == 'representatives' ? 'active' : '' ?>"
+                  >
+                    <a
+                      class="nav-link"
+                      href="<?= base_url('representatives') ?>"
+                      data-placement="left"
+                    >
+                      <i class="bi-person-workspace nav-icon"></i>
+                      <span class="nav-link-title">Temsilciler</span>
+                    </a>
+                  </li>
+                  <li
+                    class="list-group-item <?= getUriSegment(1) == 'customers' ? 'active' : '' ?>"
+                  >
+                    <a
+                      class="nav-link"
+                      href="<?= base_url('customers') ?>"
+                      data-placement="left"
+                    >
+                      <i class="bi-person-circle nav-icon"></i>
+                      <span class="nav-link-title">Müşteriler</span>
+                    </a>
+                  </li>
+                  <li
+                    class="list-group-item <?= getUriSegment(1) == 'products' ? 'active' : '' ?>"
+                  >
+                    <a
+                      class="nav-link"
+                      href="<?= base_url('products') ?>"
+                      data-placement="left"
+                    >
+                      <i class="bi-box nav-icon"></i>
+                      <span class="nav-link-title">Ürünler</span>
+                    </a>
+                  </li>
+                  <li
+                    class="list-group-item <?= getUriSegment(1) == 'product-brands' ? 'active' : '' ?>"
+                  >
+                    <a
+                      class="nav-link"
+                      href="<?= base_url('product-brands') ?>"
+                      data-placement="left"
+                    >
+                      <i class="bi-box2 nav-icon"></i>
+                      <span class="nav-link-title">Markalar</span>
+                    </a>
+                  </li>
+                  <li
+                    class="list-group-item <?= getUriSegment(1) == 'sliders' ? 'active' : '' ?>"
+                  >
+                    <a
+                      class="nav-link"
+                      href="<?= base_url('sliders') ?>"
+                      data-placement="left"
+                    >
+                      <i class="bi-images nav-icon"></i>
+                      <span class="nav-link-title">Slider</span>
+                    </a>
+                  </li>
+                  <li
+                    class="list-group-item <?= getUriSegment(1) == 'pages' ? 'active' : '' ?>"
+                  >
+                    <a
+                      class="nav-link"
+                      href="<?= base_url('pages') ?>"
+                      data-placement="left"
+                    >
+                      <i class="bi-file-text nav-icon"></i>
+                      <span class="nav-link-title">Sayfalar</span>
+                    </a>
+                  </li>
+                  <li
+                    class="list-group-item <?= getUriSegment(1) == 'settings' ? 'active' : '' ?>"
+                  >
+                    <a
+                      class="nav-link"
+                      href="<?= base_url('settings') ?>"
+                      data-placement="left"
+                    >
+                      <i class="bi-gear nav-icon"></i>
+                      <span class="nav-link-title">Ayarlar</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="content" class="p-2 d-flex flex-column">
+        <div id="contentHeader">
+          <svg
+            id="CtrlLeft"
+            class="bg-white"
+            width="24"
+            height="24"
+            xmlns="http://www.w3.org/2000/svg"
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+          >
+            <path
+              d="M12 0c6.623 0 12 5.377 12 12s-5.377 12-12 12-12-5.377-12-12 5.377-12 12-12zm0 1c6.071 0 11 4.929 11 11s-4.929 11-11 11-11-4.929-11-11 4.929-11 11-11zm-3 5.753l6.44 5.247-6.44 5.263.678.737 7.322-6-7.335-6-.665.753z"
+            />
+          </svg>
+
+          <svg
+            id="CtrlRight"
+            class="bg-white d-none"
+            width="24"
+            height="24"
+            xmlns="http://www.w3.org/2000/svg"
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+          >
+            <path
+              d="M12 0c6.623 0 12 5.377 12 12s-5.377 12-12 12-12-5.377-12-12 5.377-12 12-12zm0 1c6.071 0 11 4.929 11 11s-4.929 11-11 11-11-4.929-11-11 4.929-11 11-11zm3 5.753l-6.44 5.247 6.44 5.263-.678.737-7.322-6 7.335-6 .665.753z"
+            />
+          </svg>
+        </div>
+
+        <div id="contentMain">
+          <h3>Left Sidebar with Submenus</h3>
+          <p class="lead">
+            An example 2-level sidebar with collasible menu items. The menu
+            functions like an "accordion" where only a single menu is be open at
+            a time.
+          </p>
+          <ul class="list-unstyled">
+            <li>
+              <h5>Responsive</h5>
+              shrinks in width, hides text labels and collapses to icons only on
+              mobile
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <script src="/fiLibs/bootstrap/bootstrap.bundle.min.js"></script>
+
+    <script>
+      document
+        .getElementById('CtrlLeft')
+        .addEventListener('click', sideBarCtrl);
+      document
+        .getElementById('CtrlRight')
+        .addEventListener('click', sideBarCtrl);
+
+      function sideBarCtrl() {
+        document.getElementById('fiSidebar').classList.toggle('d-none');
+        document.getElementById('CtrlLeft').classList.toggle('d-none');
+        document.getElementById('CtrlRight').classList.toggle('d-none');
+
+        //document.getElementById('fiSidebar').classList.toggle('w-0');
+        //document.getElementById('SideBar').classList.toggle('w-25');
+        //document.getElementById('content').classList.toggle('offset-3');
+        //document.getElementById('fiAccordionMenu').classList.toggle('d-none');
+        //document.getElementById('SideBarTitle').classList.toggle('d-none');
+      }
+
+      /*
+hasClass = (el, cls) => {
+  return [...el.classList].includes(cls); //cls without dot
+};
+*/
+    </script>
+  </body>
+</html>
