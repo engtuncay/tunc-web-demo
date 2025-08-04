@@ -1,0 +1,38 @@
+.wrapper {
+  padding: 5px;
+}
+
+/* d-none for testing (to see container without it) */
+.d-none {
+  display: none;
+}
+
+/* Animation Essentials */
+
+.fiLoadingBar {
+  /*float: left;*/
+  width: 15px;
+  height: 6px;
+  border-radius: 2px;
+  background-color: #4b9cdb;
+  /* space for other elements */
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.fiLoadingBar {
+  animation: kfFiLoadingBar 2s cubic-bezier(0.17, 0.37, 0.43, 0.67) infinite;
+}
+
+@keyframes kfFiLoadingBar {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(2.5rem, 0);
+    background-color: #f5634a;
+    width: 1.5rem;
+}
+}
