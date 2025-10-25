@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>ES6,Promise,Fetch</title>
+  </head>
+  <body>
+    <script>
+      //ex1();
+      console.log("promise 10 sn sonra çalışacak");
+      
+      // Promise objesine bir callback fonksiyonu veriyoruz. asenkron bir işlem yapacak.
+      // Promise objesi, resolve ve reject parametrelerini alır.
+      // resolve, promise başarılı bir şekilde tamamlandığında çağrılır.
+      // reject, promise bir hata ile karşılaştığında çağrılır.
+      let doPromise = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          const skills = ["HTML", "CSS", "JS"];
+          if (skills.length > 0) {
+            resolve(skills);
+          } else {
+            reject("Something wrong has happened");
+          }
+        }, 1000*10); // 1000 ms = 1 second
+      });
+
+      doPromise
+        .then((result) => {
+          // resolve callback
+          console.log(result);
+        })
+        .catch(
+          // reject callback
+          (error) => console.log(error)
+        );
+
+      // Output
+      // ["HTML", "CSS", "JS"]
+      //}
+    </script>
+  </body>
+</html>

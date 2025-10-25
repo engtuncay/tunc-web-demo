@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>ES6,Promise,Fetch</title>
+  </head>
+  <body>
+    Deneme
+    <script type="module">
+      // module olmazsa async kullanılamaz
+      console.log("ex3-async");
+
+      //const fnAsyn = async (n) => n*n;
+      const fnAsyn = async () => {
+          return new Promise(resolve => {
+        setTimeout(() => resolve("fnAsyn"), 2000);
+        });
+      };
+      
+      // Async function returns a promise (The async function is a wrapper around the promise)
+      const ex4Promise = fnAsyn();
+      console.log("fnAsync fonk sonucu beklenecek");
+      const ex4Value = await fnAsyn();
+
+      console.log(ex4Value);
+      console.log(fnAsyn);
+      console.log(ex4Promise);
+      ex4Promise.then((val) => console.log(val));
+    </script>
+  </body>
+</html>

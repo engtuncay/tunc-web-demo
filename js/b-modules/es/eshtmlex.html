@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>ES Module Test</h1>
+  <div id="output"></div>
+  <script type="module">
+    import { add, subtract } from "./eslib1.mjs";
+
+    document.getElementById("output").innerHTML = `
+      <p>Add: ${add(5, 5)}</p>
+      <p>Subtract: ${subtract(10, 5)}</p>
+    `;
+  </script>
+</body>
+</html>

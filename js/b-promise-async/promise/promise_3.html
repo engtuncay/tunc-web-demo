@@ -1,0 +1,74 @@
+<!DOCTYPE html><html lang="en"><head><title>Promise</title></head><body><script>
+let url_1 = 'https://jsonplaceholder.typicode.com/todos/1'
+
+function my_ajax(url){
+    return new Promise((resolve,reject)=>{
+        let xhr = new XMLHttpRequest()
+        xhr.open("GET", url, true)
+        xhr.onreadystatechange = function(){
+            if(this.readyState == 4){
+                if(this.status == 200){
+                    resolve(JSON.parse(this.responseText))
+                }else{
+                    reject('ERR: '+this.status)
+                }
+            }
+        }
+        xhr.send()
+    })
+}
+let po = my_ajax(url_1)
+po.then((val)=>{console.log(val)})
+.catch((err)=>{console.log(err)})
+/*
+https://jsonplaceholder.typicode.com/todos/1
+JSONPlaceholder is a free online REST API that you can use
+whenever you need some fake data. It's great for tutorials,
+testing new libraries, sharing code examples, ...
+*/
+
+
+
+
+
+
+async function outer(){
+    console.log('program starts...')
+
+    let sv = await my_ajax(url_1)
+    console.log(sv)
+
+    console.log('program ends...')
+}
+outer()
+
+
+async function outer(){
+    let num = 1
+
+    await new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            num++
+            resolve('whatever...')
+        },1000)
+    })
+
+
+    console.log(num)
+}
+
+
+outer()
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

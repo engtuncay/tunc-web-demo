@@ -1,0 +1,24 @@
+<!DOCTYPE html><html lang="en"><head><title>Promise</title></head><body><script>
+let po = new Promise((resolve,reject)=>{
+    setTimeout(()=>{
+        resolve('success value, 2 seconds delay')
+    },2000)
+})
+
+po
+.then((val)=>{
+    console.log(val)
+})
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

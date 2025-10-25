@@ -1,0 +1,43 @@
+<!DOCTYPE html><html lang="en"><head><title>Promise</title></head><body><script>
+
+let po = new Promise((resolve,reject)=>{
+    resolve({
+        then(resolve,reject){
+            console.log('then_able obj. in func. resolve')
+            //resolve('success value')
+            reject('failure reason')
+        }
+    }) 
+    //reject('failure reason')
+})
+
+po
+.then((val)=>{ // onFulfilled
+    console.log(val)
+})
+.catch((err)=>{ // onRejected
+    console.log(err)
+})
+.finally(()=>{ // onFinally
+    console.log('finally...')
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

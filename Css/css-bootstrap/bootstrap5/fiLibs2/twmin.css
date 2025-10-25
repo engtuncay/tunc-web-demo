@@ -1,0 +1,335 @@
+/* TailwindCSS genişlik sınıflarını Bootstrap'e uyarlayan özel CSS */
+
+.tw-w-1 {
+    width: 0.25rem;
+}
+
+.tw-w-2 {
+    width: 0.5rem;
+}
+
+.tw-w-3 {
+    width: 0.75rem;
+}
+
+.tw-w-4 {
+    width: 1rem;
+}
+
+.tw-w-5 {
+    width: 1.25rem;
+}
+
+.tw-w-6 {
+    width: 1.5rem;
+}
+
+.tw-w-8 {
+    width: 2rem;
+}
+
+.tw-w-10 {
+    width: 2.5rem;
+}
+
+.tw-w-12 {
+    width: 3rem;
+}
+
+.tw-w-16 {
+    width: 4rem;
+}
+
+.tw-w-20 {
+    width: 5rem;
+}
+
+.tw-w-24 {
+    width: 6rem;
+}
+
+.tw-w-32 {
+    width: 8rem;
+}
+
+.tw-w-40 {
+    width: 10rem;
+}
+
+.tw-w-48 {
+    width: 12rem;
+}
+
+.tw-w-56 {
+    width: 14rem;
+}
+
+.tw-w-64 {
+    width: 16rem;
+}
+
+.tw-w-auto {
+    width: auto;
+}
+
+.tw-w-full {
+    width: 100%;
+}
+
+.tw-w-screen {
+    width: 100vw;
+}
+
+.tw-w-min {
+    width: min-content;
+}
+
+.tw-w-max {
+    width: max-content;
+}
+
+/*************************************************************/
+
+/* TailwindCSS yükseklik sınıflarını Bootstrap'e uyarlayan özel CSS */
+
+.tw-h-1 {
+    height: 0.25rem;
+}
+
+.tw-h-2 {
+    height: 0.5rem;
+}
+
+.tw-h-3 {
+    height: 0.75rem;
+}
+
+.tw-h-4 {
+    height: 1rem;
+}
+
+.tw-h-5 {
+    height: 1.25rem;
+}
+
+.tw-h-6 {
+    height: 1.5rem;
+}
+
+.tw-h-8 {
+    height: 2rem;
+}
+
+.tw-h-10 {
+    height: 2.5rem;
+}
+
+.tw-h-12 {
+    height: 3rem;
+}
+
+.tw-h-16 {
+    height: 4rem;
+}
+
+.tw-h-20 {
+    height: 5rem;
+}
+
+.tw-h-24 {
+    height: 6rem;
+}
+
+.tw-h-32 {
+    height: 8rem;
+}
+
+.tw-h-40 {
+    height: 10rem;
+}
+
+.tw-h-48 {
+    height: 12rem;
+}
+
+.tw-h-56 {
+    height: 14rem;
+}
+
+.tw-h-64 {
+    height: 16rem;
+}
+
+.tw-h-auto {
+    height: auto;
+}
+
+.tw-h-full {
+    height: 100%;
+}
+
+.tw-h-screen {
+    height: 100vh;
+}
+
+.tw-h-min {
+    height: min-content;
+}
+
+.tw-h-max {
+    height: max-content;
+}
+
+/*************************************************************/
+
+/* Text-size */
+
+.tw-text-xs {
+    font-size: 0.75rem;
+}
+
+.tw-text-sm {
+    font-size: 0.875rem;
+}
+
+.tw-text-base {
+    font-size: 1rem;
+}
+
+.tw-text-lg {
+    font-size: 1.125rem;
+}
+
+.tw-text-xl {
+    font-size: 1.25rem;
+}
+
+.tw-text-2xl {
+    font-size: 1.5rem;
+}
+
+.tw-text-3xl {
+    font-size: 1.875rem;
+}
+
+.tw-text-4xl {
+    font-size: 2.25rem;
+}
+
+.tw-text-5xl {
+    font-size: 3rem;
+}
+
+.tw-text-6xl {
+    font-size: 3.75rem;
+}
+
+.tw-text-7xl {
+    font-size: 4.5rem;
+}
+
+.tw-text-8xl {
+    font-size: 6rem;
+}
+
+.tw-text-9xl {
+    font-size: 8rem;
+}
+
+/* max-width */
+
+.tw-max-w-1-2 {
+    max-width: 50%;
+}
+
+/* background color */
+
+.tw-bg-red-300 {
+    background-color: #fca5a5;
+}
+
+/* border */
+
+.tw-border {
+    border: 1px solid #dee2e6;
+}
+
+.tw-border-t {
+    border-top: 1px solid #dee2e6;
+}
+
+.tw-border-r {
+    border-right: 1px solid #dee2e6;
+}
+
+.tw-border-b {
+    border-bottom: 1px solid #dee2e6;
+}
+
+.tw-border-l {
+    border-left: 1px solid #dee2e6;
+}
+
+.tw-border-2 {
+    border-width: 2px;
+}
+
+.tw-border-4 {
+    border-width: 4px;
+}
+
+.tw-border-8 {
+    border-width: 8px;
+}
+
+.tw-border-red-500 {
+    border-color: #ef4444;
+}
+
+.tw-border-blue-500 {
+    border-color: #3b82f6;
+}
+
+.tw-border-green-500 {
+    border-color: #10b981;
+}
+
+.tw-border-yellow-500 {
+    border-color: #f59e0b;
+}
+
+.tw-rounded {
+    border-radius: 0.25rem;
+}
+
+.tw-rounded-lg {
+    border-radius: 0.5rem;
+}
+
+.tw-rounded-full {
+    border-radius: 9999px;
+}
+
+.tw-rounded-none {
+    border-radius: 0;
+}
+
+.tw-rounded-t {
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+}
+
+.tw-rounded-r {
+    border-top-right-radius: 0.25rem;
+    border-bottom-right-radius: 0.25rem;
+}
+
+.tw-rounded-b {
+    border-bottom-right-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
+}
+
+.tw-rounded-l {
+    border-top-left-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
+}

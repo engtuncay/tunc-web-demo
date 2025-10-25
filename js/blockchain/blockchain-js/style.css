@@ -1,0 +1,137 @@
+body {
+  font-family: Arial, sans-serif;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f5f5f5;
+}
+.container {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+.block {
+  background: #e3f2fd;
+  border: 2px solid #2196f3;
+  border-radius: 8px;
+  padding: 15px;
+  margin: 10px 0;
+}
+.transaction {
+  background: #f3e5f5;
+  border: 1px solid #9c27b0;
+  border-radius: 4px;
+  padding: 10px;
+  margin: 5px 0;
+}
+button {
+  background: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 5px;
+}
+button:hover {
+  background: #45a049;
+}
+.mine-btn {
+  background: #ff9800;
+}
+.mine-btn:hover {
+  background: #f57c00;
+}
+.init-btn {
+  background: #9c27b0;
+}
+.init-btn:hover {
+  background: #7b1fa2;
+}
+input {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin: 5px;
+}
+.balance {
+  background: #e8f5e8;
+  padding: 10px;
+  border-radius: 4px;
+  margin: 5px 0;
+}
+.status {
+  padding: 10px;
+  border-radius: 4px;
+  margin: 10px 0;
+}
+.valid {
+  background: #d4edda;
+  color: #155724;
+}
+.invalid {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+.utxo-info {
+  background: #fff3cd;
+  border: 1px solid #ffc107;
+  border-radius: 8px;
+  padding: 15px;
+  margin: 15px 0;
+}
+
+.utxo-info h4 {
+  margin-top: 0;
+  color: #856404;
+}
+
+.utxo-info .balance {
+  background: #f8f9fa;
+  border-left: 4px solid #ffc107;
+}
+
+.crypto-info {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.crypto-info h3 {
+  margin-top: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.crypto-info ul {
+  list-style: none;
+  padding: 0;
+}
+
+.crypto-info li {
+  padding: 5px 0;
+  font-weight: 500;
+}
+
+.mining-stats {
+  background: #e8f4fd;
+  border: 1px solid #0288d1;
+  border-radius: 8px;
+  padding: 15px;
+  margin: 15px 0;
+}
+
+.mining-stats h4 {
+  margin-top: 0;
+  color: #01579b;
+}
+
+.mining-stats div {
+  margin: 8px 0;
+  font-size: 14px;
+}
