@@ -1,0 +1,38 @@
+<!DOCTYPE html><html lang="en"><head><title>PORXY</title></head>
+<body><script>
+let car = {
+    engine:'petrol',
+    gearbox:'manual'
+}
+let car_proxy = new Proxy(car,{
+    // trap
+    get(target,prop,receiver){
+        if(prop == 'engine'){
+            return target[prop].toUpperCase()
+        }else if(prop == 'receiver'){
+            return receiver
+        }else{
+            return 'access denied...'
+        }
+    }
+})
+
+let new_obj = Object.create(car_proxy);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

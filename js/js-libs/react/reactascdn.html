@@ -1,0 +1,51 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div id="root"></div>
+
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://unpkg.com/babel-standalone@6/babel.js"
+    ></script>
+    <script type="text/babel" src="./greetings.js"></script>
+    <!-- greeting js content
+    function Greetings() {
+      return <h1>Hello readers, Thankyou for reading this blog !</h1>;
+    }
+    -->
+    <script type="text/babel">
+      // Define a component called Greetings
+      function Main() {
+        const animals = ["Dog", "Bird", "Cat", "Mouse", "Horse"];
+        return (
+          <div>
+            abc
+            <br />
+            <Greetings />
+            <ul>
+              {animals.map((animal) => (
+                <li>{animal}</li>
+              ))}
+            </ul>
+          </div>
+        );
+      }
+
+      // Render the component to the DOM
+      ReactDOM.render(<Main />, document.getElementById("root"));
+    </script>
+  </body>
+</html>

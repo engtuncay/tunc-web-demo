@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue 3 Demo</title>
+    <style>
+    body,h1,h2,h3,p,span,button,input{padding:0;margin:0}
+    body{padding:10px}
+    li{margin:15px 0px}
+    button{margin-right:5px;margin-top:5px;padding:1px 2px}
+    </style>
+</head>
+<body>
+    <div id='vue_app'>
+<ul v-if='comments.length'>
+    <li v-for='(elem,index) in comments' :key='index'>
+        <p v-for='(val,prop,index) in elem' v-bind:key='index'>
+            {{prop}}: {{val}}
+        </p>
+    </li>
+</ul>
+<p v-else>No Comment Yet...</p>
+<div v-if='comments.length>1'>
+<hr>
+<button @click='sortByDate(true)' :disabled='!asc'>Ascending Date</button>
+<button @click='sortByDate(false)' :disabled='!desc'>Descending Date</button>
+</div>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        // Vue CreateApp ile verdiği (optionsApi) obje root component'in script'i
+        let app = Vue.createApp({
+            data(){return{
+                comments:[
+                    {id:111,comment:'apple',street:'Percy Street',date:2012,pinned:false},
+                    {id:222,comment:'orange',city:'Newcastle',date:2008,pinned:false},
+                    {id:333,comment:'peach',nation:'UK',date:2015,pinned:true},
+                    {id:444,comment:'grape',date:2022,pinned:false}
+                ]
+                ,asc:true
+                ,desc:true
+            }},
+            methods:{
+                sortByDate(dir){
+                    if(dir){
+                    // buradaki this data metodunda döndüğü obje
+                    this.comments.sort((a,b)=>{return a.date-b.date})
+                    this.asc=false
+                    this.desc=true
+                    }else{
+                    this.comments.sort((a,b)=>{return b.date-a.date})
+                    this.asc=true
+                    this.desc=false
+                    }
+                }
+            }
+        })
+        let vm = app.mount('#vue_app')
+    </script>
+</body>
+</html>

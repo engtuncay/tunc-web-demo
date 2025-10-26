@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TypeScript Blockchain Demo - Vite Edition</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <h1>🔗 TypeScript Blockchain Demo - Vite Bundler Edition</h1>
+    <div class="crypto-info">
+      <h3>🔐 Vite Bundler Özellikleri</h3>
+      <ul>
+        <li>✅ SHA-256 Hash Algoritması (Bundled)</li>
+        <li>✅ Hot Module Replacement (HMR)</li>
+        <li>✅ Tree Shaking optimizasyonu</li>
+        <li>✅ Offline çalışma</li>
+        <li>✅ Production build optimizasyonu</li>
+        <li>✅ Legacy browser desteği</li>
+      </ul>
+    </div>
+
+    <div class="container">
+      <h2>Başlangıç Ayarları</h2>
+      <div>
+        <button id="initializeBalancesBtn" class="init-btn">
+          🪙 Başlangıç Bakiyelerini Oluştur
+        </button>
+        <button id="quickMineBtn" class="mine-btn">
+          ⚡ Hızlı Mining (Bakiye için)
+        </button>
+      </div>
+      <div id="initStatus"></div>
+    </div>
+
+    <div class="container">
+      <h2>Yeni İşlem Oluştur</h2>
+      <div>
+        <input
+          type="text"
+          id="fromAddress"
+          placeholder="Gönderen Adres"
+          value="ahmet-wallet"
+        />
+        <input
+          type="text"
+          id="toAddress"
+          placeholder="Alıcı Adres"
+          value="mehmet-wallet"
+        />
+        <input type="number" id="amount" placeholder="Miktar" value="50" />
+        <button id="createTransactionBtn">İşlem Oluştur</button>
+      </div>
+    </div>
+
+    <div class="container">
+      <h2>Mining & Difficulty</h2>
+      <div>
+        <input
+          type="text"
+          id="minerAddress"
+          placeholder="Miner Adresi"
+          value="miner1-wallet"
+        />
+        <input
+          type="number"
+          id="difficulty"
+          placeholder="Difficulty (1-4)"
+          value="2"
+          min="1"
+          max="4"
+        />
+        <button class="mine-btn" id="mineTransactionsBtn">
+          Bekleyen İşlemleri Mine Et
+        </button>
+        <button id="adjustDifficultyBtn">Difficulty Otomatik Ayarla</button>
+      </div>
+      <div id="miningStatus"></div>
+      <div id="miningStats"></div>
+    </div>
+
+    <div class="container">
+      <h2>Bakiye Sorgula</h2>
+      <div>
+        <input
+          type="text"
+          id="balanceAddress"
+          placeholder="Adres"
+          value="ahmet-wallet"
+        />
+        <button id="checkBalanceBtn">Bakiye Kontrol Et</button>
+      </div>
+      <div id="balanceResult"></div>
+    </div>
+
+    <div class="container">
+      <h2>Bekleyen İşlemler</h2>
+      <button id="showPendingBtn">Bekleyen İşlemleri Göster</button>
+      <div id="pendingTransactions"></div>
+    </div>
+
+    <div class="container">
+      <h2>Blockchain Durumu</h2>
+      <button id="displayBlockchainBtn">Blockchain'i Göster</button>
+      <button id="validateChainBtn">Geçerliliği Kontrol Et</button>
+      <button id="rebuildUtxoBtn">UTXO Set'i Yeniden Oluştur</button>
+      <div id="chainStatus"></div>
+      <div id="blockchain"></div>
+    </div>
+
+    <div class="container">
+      <h2>Build Bilgileri</h2>
+      <div id="buildInfo">
+        <div><strong>Build Time:</strong> <span id="buildTime"></span></div>
+        <div><strong>Version:</strong> <span id="version"></span></div>
+        <div><strong>Bundler:</strong> Vite</div>
+      </div>
+    </div>
+
+    <!-- Vite main script -->
+    <script type="module" src="./main.ts"></script>
+  </body>
+</html>

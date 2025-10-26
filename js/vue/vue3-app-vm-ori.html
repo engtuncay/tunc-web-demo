@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue 3 Demo</title>
+    <style>
+    body,h1,h2,h3,p,span,button,input{padding:0;margin:0}
+    body{padding:10px}
+    h1{color:#4E8397;font-family: monospace}
+    p{color:#00C9A7;font-family: Arial, Helvetica, sans-serif}
+    </style>
+</head>
+<body>
+    <p id='nativeP' title='native P tag'>native P tag</p>
+    <div id='vue_app'>
+        <h1 ref='ref_h1'>Vue 3 app</h1>
+        <p ref='ref_p' id='vueP' title='vue P tag'>vue P tag</p>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+    let app = Vue.createApp({
+
+    })
+    let vm = app.mount('#vue_app')
+    </script>
+</body>
+</html>

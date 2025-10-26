@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Websocket</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="http://localhost:3000/socket.io/socket.io.js"></script>
+    <script>
+        $(() => {
+            const socket = io.connect('http://localhost:3000/');
+
+            socket.on('user', (data) => {
+                $('.users').append('<li><b>' + data.name + '</b> bağlandı</li>');
+            });
+
+            $('button').on('click', () => {
+                $('.users').append('<li>Bağlandınız.</li>');
+                socket.emit('new-user', { name: $('#name').val() });
+            });
+        });
+    </script>
+</head>
+<body>
+
+<input id="name" />
+<button>Bağlan</button>
+
+</br>
+<ul class="users">
+
+</ul>
+
+</body>
+</html>

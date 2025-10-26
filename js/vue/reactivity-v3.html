@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Reactivity</title>
+    <style>
+    body,h1,h2,p,span{margin:0;padding:0}
+    body{padding:10px}
+    h1{color:#008F7A;text-align:center;margin:10px;font-size:30px}
+    p{color:#2C73D2;text-align:center;font-family: monospace;font-size:24px}
+    </style>
+</head>
+<body>
+    <p id='p'>???</p>
+    <h1 id='h1'>???</h1>
+<script>
+let data = {
+    title:'title prop from data obj.',msg:'msg prop from data obj.',
+    secret:'secret content',
+    test(){console.log(this)}
+}
+
+let vm = new Proxy(data,{
+    get(target,prop,receiver){
+        //target[prop]
+        if(prop=='secret') return 'access denied'
+        return Reflect.get(target,prop)
+    },
+    set(target,prop,newVal,receiver){
+        if(prop=='title'){
+            document.getElementById('p').innerText=newVal
+        }else if(prop=='msg'){
+            document.getElementById('h1').innerText=newVal
+        }
+        Reflect.set(...arguments)
+    }
+})
+// function test(){
+//     console.log(this)
+// }
+// Reflect.apply(test,data)
+// test.apply(data)
+</script>
+</body>
+</html>
