@@ -1,50 +1,38 @@
-// Test Method
+// Regex Examples
 
-console.log('Regex1js' +
-    '');
+console.log('Regex1js');
 
-
-{
+function testMethod1() {
   const str = "I love JavaScript";
   const pattern = /love/;
   const result = pattern.test(str);
   console.log(result);
+  // -- Output --
+  // true
+  // Match Method
 }
 
-// -- Output --
-// true
+testMethod1();
 
-// Match Method
 
-{
+function matchMethod1() {
   const str = "I alove JavaScript flove glove";
   const pattern = /(.love)/g;
   const result = str.match(pattern);
   console.log(result);
 
-  console.log(typeof result);
+  // -- Output --
+  // [ 'alove', 'flove', 'glove' ]
 
-  for (const element of result) {
-    console.log(element);
-  }
-
-  // for (const element of result) {
-  // console.log(element);
-  // }
-
-  // for (const key in result) {
-  // console.log(key);
-  // }
-
-  // console.log("index:" + result.index);
+  // g flag'i olmazsa sonuç :
+  // ["love", index: 2, input: "I love  JavaScript", groups: undefined]
 }
 
-// -- Output --
-// ["love", index: 2, input: "I love  JavaScript", groups: undefined]
+matchMethod1()
 
 // Search Met
 
-{
+function searchMethod1() {
   const str = "I love JavaScript";
   const pattern = /love/g;
   const result = str.search(pattern);
@@ -54,12 +42,14 @@ console.log('Regex1js' +
   // 2
 }
 
+searchMethod1()
+
 // Replace
 
-{
+function replaceMethod1() {
   const txt =
     "Python is the most beautiful language that a human begin has ever created (python).\
-I recommend python for a first programming language";
+    I recommend python for a first programming language";
 
   // g flag'i vermezsek sadece ilk satırı değerlendirir.
   matchReplaced = txt.replace(/Python|python/, "JavaScript");
@@ -69,7 +59,9 @@ I recommend python for a first programming language";
   // JavaScript is the most beautiful language that a human begin has ever created.I recommend python for a first programming language
 }
 
-{
+replaceMethod1()
+
+function replaceMethod2() {
   const txt =
     "%I a%m te%%a%%che%r%.\
 T%he%re i%s n%o%th%ing as m%ore r%ewarding a%s e%duc%at%i%ng a%n%d e%m%p%ow%er%ing";
@@ -77,3 +69,5 @@ T%he%re i%s n%o%th%ing as m%ore r%ewarding a%s e%duc%at%i%ng a%n%d e%m%p%ow%er%i
   matches = txt.replace(/%/g, "");
   console.log(matches);
 }
+
+replaceMethod2();
