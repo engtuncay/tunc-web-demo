@@ -1,0 +1,21 @@
+{
+  "name": "whatsapp-web-sender",
+  "version": "1.0.0",
+  "description": "WhatsApp Web URL üzerinden mesaj gönderme uygulaması",
+  "type": "module",
+  "main": "wsmessage.js",
+  "bin": {
+    "wsmessage": "wsmessage.js"
+  },
+  "scripts": {
+    "start": "node wsmessage.js",
+    "test": "node wsmessage.js 905339999999 'Test Mesajı'"
+  },
+  "keywords": [
+    "whatsapp",
+    "automation",
+    "messaging"
+  ],
+  "author": "",
+  "license": "MIT"
+}
