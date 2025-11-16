@@ -18,7 +18,11 @@ dist-ssr
 !.vscode/extensions.json
 !js\.vscode\js-workshop.code-workspace
 
-.idea
+# JetBrains IDE'leri için genel ayarlar
+.idea/
+*.iml
+
+# MacOS sistem dosyaları
 .DS_Store
 *.suo
 *.ntvs*
@@ -26,9 +30,6 @@ dist-ssr
 *.sln
 *.sw?
 
-# JetBrains IDE'leri için genel ayarlar
-.idea/
-*.iml
 
 # Çalışma alanına özgü dosyalar (kişisel ayarlar)
 workspace.xml
