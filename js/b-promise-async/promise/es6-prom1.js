@@ -1,46 +1,27 @@
-// LAZY REACTIVE PATTERN: executor sadece .create() çalıştırıldığında başlar
-
 function getUsers() {
-  // Henüz promise oluşturmıyoruz - sadece fabrika döndürüyoruz
-  return {
-    create() {
-      // İşte burada (.then() çağrısında) promise ve executor başlar!
-      console.log("executor başladı - lazy!");
-      
-      const promise = new Promise((resolve, reject) => {
-        setTimeout(() => {
-          resolve([
-            { username: 'john', email: 'john@test.com' },
-            { username: 'jane', email: 'jane@test.com' },
-          ]);
-        }, 100);
-      });
-      
-      return promise;
-    }
-  };
+  return new Promise((resolve, reject) => {
+    console.log("promise çalıştı");
+    //setTimeout(() => {
+    resolve([
+      { username: 'john', email: 'john@test.com' },
+      { username: 'jane', email: 'jane@test.com' },
+    ]);
+    //}, 1);
+  });
 }
 
-console.log("1. başlangıç");
-
-// getUsers() çağrıldı fakat executor HENÜZ çalışmadı!
 const promise = getUsers();
 
-console.log("2. son satır");
-console.log("3. son satır2");
-
-// .then() bağlanırken executor çalışmaya başlar
-promise.cre().then((users) => {
-  console.log("4. then çalıştı:", users);
+promise.then((users) => {
+  console.log(users);
 });
 
-console.log("5. son satır3");
+promise.then((users) => {
+  console.log(users.length);
+});
 
-// İkinci subscriber - yeni executor çalışması
-// getUsers().then((users) => {
-//   console.log("6. ikinci then çalıştı:", users);
-// });
-
-setTimeout(() => {
-  console.log("7. gecikmeli son satır");
-}, 500);
+console.log("son satır");
+console.log("son satır2");
+setTimeout(()=>{
+console.log("gecikmeli son satır");
+},500);
