@@ -37,6 +37,7 @@ const App: Component<{ children: Element }> = (props) => {
       </nav>
 
       <main>
+        {/* Router Outlet */}
         <Suspense>{props.children}</Suspense>
       </main>
     </>
