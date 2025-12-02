@@ -22,6 +22,8 @@ export default function Contact() {
 
       <p>Hello</p>
 
+      {/* <button class="os-btn">Default</button> */}
+
       <form onSubmit={handleSubmit}>
         <input
           type="text"
