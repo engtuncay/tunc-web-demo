@@ -14,12 +14,13 @@
     "@tailwindcss/postcss": "^4.1.13",
     "daisyui": "^5.5.5",
     "postcss": "^8.4.49",
-    "solid-devtools": "^0.34.3",
+    "solid-devtools": "^0.34.4",
     "tailwindcss": "^4.1.13",
     "vite": "^7.1.4",
     "vite-plugin-solid": "^2.11.8"
   },
   "dependencies": {
+    "@kobalte/core": "^0.13.11",
     "@solidjs/router": "^0.15.1",
     "solid-js": "^1.9.5"
   }
