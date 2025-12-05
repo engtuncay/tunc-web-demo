@@ -1,5 +1,5 @@
 import Comp from './Comp';
-
+//import { createStore } from "solid-js/store";
 
 const App = () => {
    const [state, setState] = createStore({ count: 0 });
