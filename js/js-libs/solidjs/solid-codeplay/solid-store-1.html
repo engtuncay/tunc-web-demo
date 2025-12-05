@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SolidJS Tek HTML Örneği</title>
+  <!-- Use ESM modules for browser-friendly imports and avoid the CommonJS/UMD file that triggers
+       "exports is not defined" when loaded directly in an unbundled browser environment. -->
+</head>
+<body>
+  <div id="app"></div>
+
+  <script type="module">
+    // Use ESM imports from a CDN. Avoids UMD/CommonJS bundles that rely on `exports` in the browser.
+    import { createSignal, createEffect } from 'https://cdn.skypack.dev/solid-js';
+    import { createStore } from 'https://cdn.skypack.dev/solid-js/store';
+
+    // Simple example without JSX (so it runs in the browser without a build step).
+    const app = document.getElementById('app');
+
+    // Signal counter
+    const [count, setCount] = createSignal(0);
+    const title = document.createElement('h1');
+    title.textContent = 'SolidJS Counter (no JSX)';
+    app.appendChild(title);
+
+    const p = document.createElement('p');
+    p.textContent = 'Count: ' + count();
+    app.appendChild(p);
+
+    const btn = document.createElement('button');
+    btn.textContent = 'Artır';
+    btn.addEventListener('click', () => setCount(c => c + 1));
+    app.appendChild(btn);
+
+    createEffect(() => { p.textContent = 'Count: ' + count(); });
+
+    // Store example
+    const [state, setState] = createStore({ count: 0 });
+    const p2 = document.createElement('p');
+    p2.textContent = 'Store count: ' + state.count;
+    app.appendChild(p2);
+
+    const btn2 = document.createElement('button');
+    btn2.textContent = 'Artır store';
+    btn2.addEventListener('click', () => setState('count', c => c + 1));
+    app.appendChild(btn2);
+
+    createEffect(() => { p2.textContent = 'Store count: ' + state.count; });
+  </script>
+</body>
+
+</html>
