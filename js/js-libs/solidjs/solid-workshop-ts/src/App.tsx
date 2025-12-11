@@ -13,13 +13,7 @@ const App: Component = () => {
       <button onClick={() => setState('count', state.count + 1)}>Artır</button>
       <Comp />
 
-      {/* -- Context provider demo (separate store instance) -- */}
-      <div style={{ marginTop: '24px' }}>
-        <h2>Context-based store demo (separate store)</h2>
-        <StoreProvider>
-          <ContextChild />
-        </StoreProvider>
-      </div>
+      {/* (Not: project kullanımı modül-export ile devam ediyor) */}
     </>
   );
 };

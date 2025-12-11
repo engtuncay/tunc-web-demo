@@ -37,13 +37,9 @@ You can deploy the `dist` folder to any static host provider (netlify, surge, no
 
 ## Paylaşılan store nasıl kullanılır (kısa)
 
-Bu proje içinde iki basit yaklaşım gösteriliyor — 1) modül ihracı (export) ile global store ve 2) Context provider kullanımı.
+Bu proje modül-export (module export) yöntemiyle paylaşılan store kullanımını gösterir.
 
-- Modül export yöntemi: `src/store.ts` içinde `export const [state, setState] = createStore(...)` şeklinde tanımlayıp diğer bileşenlerde `import { state, setState } from './store'` ile kullanabilirsiniz. Basit ve hızlı, küçük uygulamalar için uygundur.
-- Context Provider yöntemi: `src/store-context.tsx` içinde `StoreProvider` ve `useStore` hook'u tanımlanmıştır. Uygulamanızı provider ile sararak bileşenlerde `const [state, setState] = useStore()` şeklinde erişim sağlayabilirsiniz. Büyük uygulamalarda bağımlılık enjeksiyonu gibi davranır ve test edilebilirliği artırır.
+- Modül export yöntemi: `src/store.ts` içinde `export const [state, setState] = createStore(...)` şeklinde tanımlayıp diğer bileşenlerde `import { state, setState } from './store'` ile kullanabilirsiniz. Basit ve hızlı, küçük uygulamalar için uygundur ve proje bu yaklaşımı kullanır.
 
-Örnekler:
-
-1) Modül export (global): `src/store.ts` — `App.tsx` ve `Comp.tsx` doğrudan `state`/`setState` kullanır.
-2) Context: `src/store-context.tsx` — `StoreProvider` ile sarmalayıp `ContextChild.tsx` içinde `useStore()` kullanılır.
+Örnek: `src/store.ts` — `App.tsx` ve `Comp.tsx` doğrudan `state`/`setState` kullanır.
 
