@@ -1,0 +1,31 @@
+{
+  "copyDepsLibFolder": "bootstrap5/fiLibs",
+  "copyDepsModulesToCopy": [
+    {
+      "name": "bootstrap",
+      "file": "dist/css/bootstrap.min.css"
+    },
+    {
+      "name": "bootstrap",
+      "file": "dist/js/bootstrap.min.js"
+    },
+    {
+      "name": "bootstrap",
+      "file": "dist/js/bootstrap.bundle.min.js"
+    },
+    {
+      "name": "bootstrap-icons",
+      "file": "font/bootstrap-icons.min.css"
+    },
+    {
+      "name": "bootstrap-icons",
+      "file": "font/fonts/bootstrap-icons.woff"
+    },
+    {
+      "name": "bootstrap-icons",
+      "file": "font/fonts/bootstrap-icons.woff2"
+    }
+  ],
+  "copyDepsLibFolderEmpty": false,
+  "copyDepsLibFolderEmpty_comment": "Lib folder sync öncesi siler"
+}

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+        body {
+            margin-bottom: 750px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav id="navbar-example2" class="navbar bg-light px-3 mb-3">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <ul class="nav nav-pills">
+            <li class="nav-item">
+                <a class="nav-link" href="#scrollspyHeading1">First</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#scrollspyHeading2">Second</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+                    aria-expanded="false">Dropdown</a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#scrollspyHeading3">Third</a></li>
+                    <li><a class="dropdown-item" href="#scrollspyHeading4">Fourth</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" href="#scrollspyHeading5">Fifth</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-root-margin="0px 0px -40%"
+        data-bs-smooth-scroll="true" class="scrollspy-example bg-light p-3 rounded-2" tabindex="0">
+        <h4 id="scrollspyHeading1">First heading</h4>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore quia quibusdam repudiandae, laboriosam qui
+            in, iusto veniam sequi iste quae tempora et facilis, omnis maiores id rem aperiam ut laudantium.</p>
+        <h4 id="scrollspyHeading2">Second heading</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A neque alias sit maxime laborum tempora obcaecati
+            quo! Deleniti ex incidunt nihil autem quibusdam nemo quasi. Veritatis neque maxime soluta pariatur?</p>
+        <h4 id="scrollspyHeading3">Third heading</h4>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Placeat consequatur adipisci tempora quidem.
+            Praesentium est fugit, at quis, repellat earum culpa maiores tenetur magni eos, nostrum velit non esse eum!
+        </p>
+        <h4 id="scrollspyHeading4">Fourth heading</h4>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum esse praesentium repellat ab autem? Corporis
+            similique esse nulla placeat dolor rerum illo quia error consequuntur! Ipsum alias quo voluptas vel?</p>
+        <h4 id="scrollspyHeading5">Fifth heading</h4>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias consequuntur hic error rerum officia vel
+            blanditiis sequi explicabo eaque, nihil sapiente voluptatum magnam culpa quo ea aliquid. In, ullam laborum.
+        </p>
+    </div>
+
+
+    <button type="button" class="btn btn-primary" id="liveToastBtn">Show live toast</button>
+
+    <!-- <div class="toast-container position-fixed bottom-0 start-0 p-3">
+        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+
+                <strong class="me-auto">Bootstrap</strong>
+                <small>11 mins ago</small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+                Hello, world! This is a toast message.
+            </div>
+        </div>
+    </div> -->
+
+    <div class="d-flex justify-content-center align-items-center w-100">
+        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+
+                <strong class="me-auto">Bootstrap</strong>
+                <small>11 mins ago</small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+                Hello, world! This is a toast message.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const toastTrigger = document.getElementById('liveToastBtn')
+        const toastLiveExample = document.getElementById('liveToast')
+        if (toastTrigger) {
+            toastTrigger.addEventListener('click', () => {
+                const toast = new bootstrap.Toast(toastLiveExample)
+
+                toast.show()
+            })
+        }
+    </script>
+
+    <script src=" js/bootstrap.bundle.min.js">
+    </script>
+</body>
+
+</html>
