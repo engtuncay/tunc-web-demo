@@ -1,0 +1,14 @@
+//import { symlink } from 'fs/promises';
+import fs from 'fs-extra';
+import path from 'path';
+
+const kaynak = path.resolve('../orak-util-ts/src');
+const hedef = path.resolve('./src/orak-util-ts');
+
+try {
+  await fs.ensureSymlink(kaynak, hedef, 'junction'); // 'dir' da olabilir
+  //await symlink(kaynak, hedef, 'junction'); // 'junction' da olabilir
+  console.log('Junction link oluşturuldu!');
+} catch (err) {
+  console.error('Hata:', err);
+}
