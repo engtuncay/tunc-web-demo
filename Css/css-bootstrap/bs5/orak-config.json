@@ -1,5 +1,5 @@
 {
-  "copyDepsLibFolder": "bootstrap5/fiLibs",
+  "copyDepsLibFolder": "orak_modules",
   "copyDepsModulesToCopy": [
     {
       "name": "bootstrap",
