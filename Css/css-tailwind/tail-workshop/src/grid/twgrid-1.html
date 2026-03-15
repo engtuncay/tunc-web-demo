@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="p-6">
+  
+  <!-- SABİT KOLON: 3 kolon belirli -->
+  <div class="mb-8">
+    <h2 class="font-bold mb-2">Sorunlu: grid-cols-3 (1. silinince boş kalır)</h2>
+    <div class="grid grid-cols-3 gap-4">
+      <!-- <div class="bg-red-500 p-4">Sütun 1</div> SİLİNDİ -->
+      <div class="bg-blue-500 p-4">Sütun 2</div>
+      <div class="bg-green-500 p-4">Sütun 3</div>
+    </div>
+  </div>
+  
+  <!-- ÇÖZÜM 1: Dinamik grid (eşit dağılım) -->
+  <div class="mb-8">
+    <h2 class="font-bold mb-2">Dinamik Grid : Çözüm 1: auto-cols-fr (eşit dağılım)</h2>
+    <div class="grid auto-cols-fr gap-4">
+      <div class="bg-red-500 p-4">Sütun 1</div> 
+      <div class="bg-blue-500 p-4">Sütun 2</div>
+      <div class="bg-green-500 p-4">Sütun 3</div>
+    </div>
+  </div>
+
+  <!-- ÇÖZÜM 2: Flex kullanımı (çok daha kolay) -->
+  <div class="mb-8">
+    <h2 class="font-bold mb-2">Çözüm 2: flex (önerilen)</h2>
+    <div class="flex gap-4">
+      <!-- <div class="bg-red-500 p-4">Sütun 1</div> SİLİNDİ -->
+      <div class="bg-blue-500 p-4 flex-1">Sütun 2</div>
+      <div class="bg-green-500 p-4 flex-1">Sütun 3</div>
+    </div>
+  </div>
+
+  <!-- ÇÖZÜM 3: grid-auto-flow -->
+  <div class="mb-8">
+    <h2 class="font-bold mb-2">Çözüm 3: grid-cols-[repeat(auto-fit,minmax(200px,1fr))]</h2>
+    <div class="grid gap-4" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+      <!-- <div class="bg-red-500 p-4">Sütun 1</div> SİLİNDİ -->
+      <div class="bg-blue-500 p-4">Sütun 2</div>
+      <div class="bg-green-500 p-4">Sütun 3</div>
+    </div>
+  </div>
+
+</body>
+</html>
