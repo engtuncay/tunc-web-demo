@@ -38,6 +38,9 @@ importers:
       notiflix:
         specifier: ^3.2.8
         version: 3.2.8
+      oraksoft-ui:
+        specifier: file:../../../../oraksoft-ui
+        version: file:../../../../oraksoft-ui
       tom-select:
         specifier: ^2.1.0
         version: 2.5.2
@@ -395,6 +398,9 @@ packages:
 
   notiflix@3.2.8:
     resolution: {integrity: sha512-BNBGr3qNIBNt6NZYvch0OLF9DEEgWKcjYzISMH9eECKwfsUaINb5K/RA21hy5kmfOtdbdAdODrqxts+0xp+xwA==}
+
+  oraksoft-ui@file:../../../../oraksoft-ui:
+    resolution: {directory: ../../../../oraksoft-ui, type: directory}
 
   package-json-from-dist@1.0.1:
     resolution: {integrity: sha512-UEZIS3/by4OC8vL3P2dTXRETpebLI2NiI5vIrjaD/5UtrkFX/tNbwjTSRAGC/+7CAo2pIcBaRgWmcBBHcsaCIw==}
@@ -853,6 +859,8 @@ snapshots:
   normalize-path@3.0.0: {}
 
   notiflix@3.2.8: {}
+
+  oraksoft-ui@file:../../../../oraksoft-ui: {}
 
   package-json-from-dist@1.0.1: {}
 
