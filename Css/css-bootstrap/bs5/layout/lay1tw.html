@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tailwind CSS Grid Layout</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+  <div class="w-full px-4">
+    <div>
+      2 sütunlu grid yapı (responsive, gap-2 ile aralık verildi) - justify-end ile sağa yaslı
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-4 gap-2 bg-black py-2 justify-items-end">
+      <div class="col-span-1 sm:col-span-1 w-full sm:w-auto">
+        <div class="bg-cyan-400 text-black text-center py-2 w-full">A1...</div>
+      </div>
+      <div class="col-span-1 sm:col-span-1 w-full sm:w-auto">
+        <div class="bg-cyan-400 text-black text-center py-2 w-full">B1</div>
+      </div>
+    </div>
+    <div>Örnek 2 :</div>
+    <div class="grid grid-cols-1 sm:grid-cols-4 gap-2 bg-black py-2 justify-items-end">
+      <div class="col-span-1 sm:col-span-1 w-full sm:w-auto">
+        <div class="bg-cyan-400 text-black text-center py-2 w-full">A1</div>
+      </div>
+      <div class="col-span-1 sm:col-span-1 w-full sm:w-auto">
+        <div class="bg-cyan-400 text-black text-center py-2 w-full">B1</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
