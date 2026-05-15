@@ -1,0 +1,32 @@
+{
+  "name": "ts-sample-project",
+  "fiPrefix": "tsp",
+  "version": "0.0.1",
+  "description": "",
+  "type": "module",
+  "main": "dist/main.js",
+  "scripts": {
+    "build2": "tsc && node scripts/copy-assets.js",
+    "build": "tsc",
+    "start": "node dist/main.js",
+    "dev": "tsc && node scripts/copy-assets.js && node dist/main.js",
+    "copy-assets": "node scripts/copy-assets.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "np-prod-enn": "pnpm install --production",
+    "np-ins-tsp": "pnpm i",
+    "np-bui-watch-tsp": "tsc --watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "orak-util-node": "^0.0.8",
+    "orak-util-ts": "^1.1.7"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "typescript": "^5.3.0"
+  },
+  "zx_comment": [
+    "Production build için: pnpm run np-prod çalıştırın"
+  ]  
+}
